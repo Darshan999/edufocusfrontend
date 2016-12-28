@@ -1,0 +1,42 @@
+
+
+<app-header></app-header>
+
+  <!-- Table -->
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">Users Details</div>
+
+    <button (click)="adduser()"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+
+<table class="table">
+    <thead>
+      <th>u_email_id</th>
+      <th>u_name</th>
+      <th>u_photo</th>
+      <th>u_mobile_no</th>
+      <th>u_gender</th>
+      <th>u_active</th>
+      <th>u_status</th>
+      <th>u_type</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allUser">
+      <td>{{item.u_email_id}}</td>
+      <td>{{item.u_name}}</td>
+      <td>{{item.u_photo}}</td>
+      <td>{{item.u_mobile_no}}</td>
+      <td>{{item.u_gender}}</td>
+      <td>{{item.u_active}}</td>
+      <td>{{item.u_status}}</td>
+      <td>{{item.u_type}}</td>
+
+      <td><button (click)="updateuser(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deleteuser(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
