@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <form (ngSubmit)="addvideo()">
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Video Id</span>
+        <input type="number"  name="video_id" [(ngModel)]="video_id" class="form-control" placeholder="Enter Video_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Video Title</span>
+        <input type="string"  name="video_title" [(ngModel)]="video_title" class="form-control" placeholder="Enter Video_title" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Video</span>
+        <input type="string"  name="video" [(ngModel)]="video" class="form-control" placeholder="Enter video path" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Flag</span>
+        <input type="string"  name="flag" [(ngModel)]="flag" class="form-control" placeholder="Enter Flag" aria-describedby="basic-addon1" required>
+    </div>
+
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Email Id</span>
+        <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">sub_id</span>
+        <input type="number"  name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter sub id" aria-describedby="basic-addon1" required>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
+    </form>
+
+</div>

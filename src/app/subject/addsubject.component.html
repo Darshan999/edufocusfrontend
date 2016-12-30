@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <form (ngSubmit)="addsubject()">
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Subject Id</span>
+        <input type="number"  name="sub_id" [(ngModel)]="sub_id" class="form-control" placeholder="Enter Subject_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Subject Name</span>
+        <input type="string"  name="sub_name" [(ngModel)]="sub_name" class="form-control" placeholder="Enter Subject_name" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Question Id</span>
+        <input type="number"  name="fk_que_id" [(ngModel)]="fk_que_id" class="form-control" placeholder="Enter Question_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Email Id</span>
+        <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
+    </form>
+
+</div>
+
+

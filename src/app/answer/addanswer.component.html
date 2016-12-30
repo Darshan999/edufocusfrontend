@@ -1,0 +1,48 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <form (ngSubmit)="addanswer()">
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Answer Id</span>
+        <input type="number"  name="ans_id" [(ngModel)]="ans_id" class="form-control" placeholder="Enter Answer_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Answer Desc</span>
+        <input type="string"  name="ans_desc" [(ngModel)]="ans_desc" class="form-control" placeholder="Enter Answer_Desc" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Answer Date</span>
+        <input type="string"  name="ans_date" [(ngModel)]="ans_date" class="form-control" placeholder="Enter Answer Date" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Answer Time</span>
+        <input type="string"  name="ans_time" [(ngModel)]="ans_time" class="form-control" placeholder="Enter Answer_time" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">View </span>
+        <input type="number"  name="view" [(ngModel)]="view" class="form-control" placeholder="view" aria-describedby="basic-addon1" required>
+    </div>
+
+    
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Question Id</span>
+        <input type="number"  name="fk_que_id" [(ngModel)]="fk_que_id" class="form-control" placeholder="Enter Question_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Email ID</span>
+        <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
+    </form>
+
+</div>
+

@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Video Details</div>
+
+    <button (click)="addvideo()"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+
+<table class="table">
+    <thead>
+      <th>Video_id</th>
+      <th>Video_title</th>
+      <th>Video</th>
+      <th>Flag</th>
+      <th>u_email_id</th>
+      <th>sub_id</th>
+      <th>Edit</th>
+      <th>Delete</th> 
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allVideo">
+      <td>{{item.video_id}}</td>
+      <td>{{item.video_title}}</td>
+      <td>{{item.video}}</td>
+       <td>{{item.flag}}</td>
+      <td>{{item.fk_u_email_id}}</td>
+       <td>{{item.fk_sub_id}}</td>
+    
+
+      <td><button (click)="updatecourse(course)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletevideo(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>

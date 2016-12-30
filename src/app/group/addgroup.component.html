@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <form (ngSubmit)="addgroup()">
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Group Id</span>
+        <input type="number"  name="grp_id" [(ngModel)]="grp_id" class="form-control" placeholder="Enter Group_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Group Name</span>
+        <input type="string"  name="grp_name" [(ngModel)]="grp_name" class="form-control" placeholder="Enter Group_Name" aria-describedby="basic-addon1" required>
+    </div>
+
+       
+
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Subject Id</span>
+        <input type="number"  name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter Subject_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Email Id</span>
+        <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
+    </form>
+
+</div>
+

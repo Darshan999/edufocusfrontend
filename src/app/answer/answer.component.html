@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<div class="panel panel-primary">
+
+    <div class="panel-heading">Answer Details</div>
+
+    <button (click)="addanswer()"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+
+<table class="table">
+    <thead>
+      <th>Answer_id</th>
+      <th>Answer_desc</th>
+      <th>Answer_date</th>
+      <th>Answer_time</th>
+      <th>View</th>
+      <th>fk_que_id</th>
+      <th>fk_u_email_id</th>
+      <th>Edit</th>
+      <th>Delete</th> 
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allAnswer">
+      <td>{{item.ans_id}}</td>
+      <td>{{item.ans_desc}}</td>
+      <td>{{item.ans_date}}</td>
+      <td>{{item.ans_time}}</td>
+      <td>{{item.view}}</td>
+      <td>{{item.fk_que_id}}</td>
+      <td>{{item.fk_u_email_id}}</td>
+    
+
+      <td><button (click)="updateanswer(course)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deleteanswer(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
