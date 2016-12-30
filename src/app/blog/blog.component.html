@@ -1,0 +1,49 @@
+
+
+<app-header></app-header>
+
+  <!-- Table -->
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">Blogs Details</div>
+
+    <button (click)="addblog()" style="margin-left: 1326px;
+    border-radius: 43px;
+    color: white;
+    background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+
+<table class="table">
+    <thead>
+      <th>blog_id</th>
+      <th>blog_title</th>
+      <th>blog_desc</th>
+      <th>blog_date</th>
+      <th>blog_time</th>
+      <th>blog_photo</th>
+      <th>flag</th>
+      <th>view</th>
+      <th>fk_email_id</th>
+      <th>fk_sub_id</th>
+      <th>Approve</th>
+      <th>Dis-Approve</th>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allBlog">
+      <td>{{item.blog_id}}</td>
+      <td>{{item.blog_title}}</td>
+      <td>{{item.blog_desc}}</td>
+      <td>{{item.blog_date}}</td>
+      <td>{{item.blog_time}}</td>
+      <td>{{item.blog_photo}}</td>
+      <td>{{item.flag}}</td>
+      <td>{{item.view}}</td>
+      <td>{{item.fk_email_id}}</td>
+      <td>{{item.fk_sub_id}}</td>
+
+      <td><button (click)="updateblog(item)"><span class="glyphicon glyphicon-ok" arial-hidden="true"></span></button></td>
+      <td><button (click)="deleteblog(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>

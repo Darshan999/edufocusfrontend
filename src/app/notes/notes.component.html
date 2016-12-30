@@ -1,0 +1,37 @@
+
+
+<app-header></app-header>
+
+  <!-- Table -->
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">Notes Details</div>
+
+    <button (click)="addnotes()" style="margin-left: 1326px;
+    border-radius: 43px;
+    color: white;
+    background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+
+<table class="table">
+    <thead>
+      <th>notes_id</th>
+      <th>notes_title</th>
+      <th>fk_u_email_id</th>
+      <th>fk_sub_id</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allNotes">
+      <td>{{item.notes_id}}</td>
+      <td>{{item.notes_title}}</td>
+      <td>{{item.fk_u_email_id}}</td>
+      <td>{{item.fk_sub_id}}</td>
+      
+      <td><button (click)="updatenotes(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletenotes(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>

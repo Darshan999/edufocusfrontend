@@ -1,0 +1,60 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <form (ngSubmit)="addquestion()">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Id</span>
+        <input type="text"  name="que_id" [(ngModel)]="que_id" class="form-control" placeholder="Enter Que_id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Title</span>
+        <input type="text" name="que_title" [(ngModel)]="que_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Description</span>
+        <input type="text" name="que_desc" [(ngModel)]="que_desc" class="form-control" placeholder="Enter Description" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Date</span>
+        <input type="text" name="que_date" [(ngModel)]="que_date" class="form-control" placeholder="Date of Question" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Time</span>
+        <input type="text" name="que_time" [(ngModel)]="que_time" class="form-control" placeholder="Time of Question" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="text" name="que_photo" [(ngModel)]="que_photo" class="form-control" placeholder="Enter the image" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Flag</span>
+        <input type="text" name="flag" [(ngModel)]="flag" class="form-control" placeholder="Approve or Not?" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">View</span>
+        <input type="text" name="view" [(ngModel)]="view" class="form-control" placeholder="Views of Questions" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">U_Email_Id</span>
+        <input type="text" name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter user Email_id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Sub_Id</span>
+        <input type="text" name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter subject id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add Question</button>
+    </form>
+
+</div>
+
