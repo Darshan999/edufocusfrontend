@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <form (ngSubmit)="addnotes()">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Id</span>
+        <input type="text"  name="notes_id" [(ngModel)]="notes_id" class="form-control" placeholder="Enter Notes_id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Title</span>
+        <input type="text" name="notes_title" [(ngModel)]="notes_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">U_Email_Id</span>
+        <input type="text" name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter user Email_id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Sub_Id</span>
+        <input type="text" name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter subject id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add Notes</button>
+    </form>
+
+</div>
+
+
+

@@ -1,26 +1,24 @@
 import { Injectable } from '@angular/core';
-import { QuestionModel } from './question-model';
+import { NewsModel } from './news-model';
 import { Http,Response,Headers,RequestOptions } from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
-export class QuestionDataService {
+export class NewsDataService {
 
-private url:string="http://localhost:3000/questions/";
+  private url:string="http://localhost:3000/news/";
 
   constructor(private _http:Http) { }
 
-  getAllQuestions()
+  getAllNews()
   {
     return this._http.get(this.url).map((res:Response)=>res.json());
   }
-
-  getQuestionById(id:number)
+  getNewsById(id:number)
   {
     return this._http.get(this.url+id).map((res:Response)=>res.json());
   }
-
-  addQuestion(item:QuestionModel)
+  addNews(item:NewsModel)
   {
     let body=JSON.stringify(item);
     let headers=new Headers({'Content-Type':'application/json'});
@@ -28,22 +26,23 @@ private url:string="http://localhost:3000/questions/";
 
     return this._http.post(this.url,body,requestoptions).map((res:Response)=>res.json());
   }
-
-  deleteQuestion(id:number)
+  deleteNews(id:number)
   {
-
+    
     let headers=new Headers({'Content-Type':'application/json'});
     let requestoptions=new RequestOptions({headers:headers});
 
     return this._http.delete(this.url+id,requestoptions).map((res:Response)=>res.json());
   }
 
-  updateQuestion(item:QuestionModel)
+  updateNews(item:NewsModel)
   {
     let body=JSON.stringify(item);
     let headers=new Headers({'Content-Type':'application/json'});
     let requestoptions=new RequestOptions({headers:headers});
 
-    return this._http.put(this.url+item.que_id,body,requestoptions).map((res:Response)=>res.json());
+    return this._http.put(this.url+item.news_id,body,requestoptions).map((res:Response)=>res.json());
   }
+
+
 }

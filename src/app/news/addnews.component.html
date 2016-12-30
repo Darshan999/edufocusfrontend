@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="container">
+
+    <form (ngSubmit)="addnews()">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Id</span>
+        <input type="text"  name="news_id" [(ngModel)]="news_id" class="form-control" placeholder="Enter News_id" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Title</span>
+        <input type="text" name="news_title" [(ngModel)]="news_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Description</span>
+        <input type="text" name="news_desc" [(ngModel)]="news_desc" class="form-control" placeholder="Enter Description" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="text" name="news_photo" [(ngModel)]="news_photo" class="form-control" placeholder="Enter the image" aria-describedby="basic-addon1" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add News</button>
+    </form>
+
+</div>
+
+

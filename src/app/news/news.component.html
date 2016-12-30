@@ -1,0 +1,37 @@
+
+
+<app-header></app-header>
+
+  <!-- Table -->
+  <div class="panel panel-primary">
+
+    <div class="panel-heading">News Details</div>
+
+    <button (click)="addnews()" style="margin-left: 1326px;
+    border-radius: 43px;
+    color: white;
+    background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+
+<table class="table">
+    <thead>
+      <th>news_id</th>
+      <th>news_title</th>
+      <th>news_desc</th>
+      <th>news_photo</th>
+      <th>Edit</th>
+      <th>Delete</th>
+
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allNews">
+      <td>{{item.news_id}}</td>
+      <td>{{item.news_title}}</td>
+      <td>{{item.news_desc}}</td>
+      <td>{{item.news_photo}}</td>
+      
+      <td><button (click)="updatenews(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletenews(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
