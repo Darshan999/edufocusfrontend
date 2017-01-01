@@ -11,24 +11,27 @@
     border-radius: 43px;
     color: white;
     background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+    <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
 
 <table class="table">
     <thead>
-      <th>u_email_id</th>
-      <th>u_name</th>
-      <th>u_password</th>
-      <th>u_photo</th>
-      <th>u_mobile_no</th>
-      <th>u_gender</th>
-      <th>u_active</th>
-      <th>u_status</th>
-      <th>u_type</th>
-      <th>Edit</th>
+      <th><input type="checkbox" /></th>
+      <th>Email_Id</th>
+      <th>Name</th>
+      <th>Password</th>
+      <th>Photo</th>
+      <th>Mobile_no</th>
+      <th>Gender</th>
+      <th>Active</th>
+      <th>Status</th>
+      <th>Type</th>
+      
       <th>Delete</th>
 
     </thead>
     <tbody>
     <tr *ngFor="let item of allUser">
+      <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.u_email_id}}</td>
       <td>{{item.u_name}}</td>
       <td>{{item.u_password}}</td>
@@ -39,7 +42,7 @@
       <td>{{item.u_status}}</td>
       <td>{{item.u_type}}</td>
 
-      <td><button (click)="updateuser(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      
       <td><button (click)="deleteuser(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
     </tr>
     </tbody>

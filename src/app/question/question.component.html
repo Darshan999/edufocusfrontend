@@ -1,49 +1,51 @@
+<div class="row">
+  <app-header></app-header>
+</div>
 
 
-<app-header></app-header>
 
   <!-- Table -->
-  <div class="panel panel-primary">
+  
 
-    <div class="panel-heading">Questions Details</div>
-
-    <button (click)="addquestion()" style="margin-left: 1326px;
-    border-radius: 43px;
-    color: white;
-    background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+    
+    <h2 class="text">Question Details</h2>
+    <div class="panel-body">
+    <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
+    <button (click)="addquestion()" class="btn btn-primary" ><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+   
+    </div>
 
 <table class="table">
     <thead>
-      <th>que_id</th>
-      <th>que_title</th>
-      <th>que_desc</th>
-      <th>que_date</th>
-      <th>que_time</th>
-      <th>que_photo</th>
-      <th>flag</th>
+      <tr>
+      <th><input type="checkbox" /></th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Photo</th>
       <th>view</th>
-      <th>fk_email_id</th>
-      <th>fk_sub_id</th>
-      <th>Approve</th>
-      <th>Dis-Approve</th>
-
+      <th>User_Name</th>
+      <th>Subject_Name</th>
+      <th>Update</th>
+      <th>Delete</th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of allQuestion">
-      <td>{{item.que_id}}</td>
+    <tr *ngFor="let item of allQuestionjoin">
+      <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.que_title}}</td>
       <td>{{item.que_desc}}</td>
       <td>{{item.que_date}}</td>
       <td>{{item.que_time}}</td>
       <td>{{item.que_photo}}</td>
-      <td>{{item.flag}}</td>
       <td>{{item.view}}</td>
-      <td>{{item.fk_email_id}}</td>
-      <td>{{item.fk_sub_id}}</td>
+      <td>{{item.u_name}}</td>
+      <td>{{item.sub_name}}</td>
 
-      <td><button (click)="updatequestion(item)"><span class="glyphicon glyphicon-ok" arial-hidden="true"></span></button></td>
-      <td><button (click)="deletequestion(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      <td><button (click)="updatequestion(item)" class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletequestion(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
     </tr>
     </tbody>
   </table>
-  </div>
+  

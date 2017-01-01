@@ -38,6 +38,14 @@ export class UserDataService {
     return this._http.delete(this.url+id,requestoptions).map((res:Response)=>res.json());
   }
 
+  deleteAll(item:UserModel[]){
+  let body=JSON.stringify(item);
+   let headers=new Headers({'Content-Type':'application/json'});
+  let requestoption=new RequestOptions({headers:headers});
+  return this._http.post(this.url+1,body,requestoption).map((res:Response)=>res.json());
+  
+  }
+
   updateUser(item:UserModel)
   {
     let body=JSON.stringify(item);

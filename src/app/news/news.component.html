@@ -14,10 +14,13 @@
 
 <table class="table">
     <thead>
-      <th>news_id</th>
-      <th>news_title</th>
-      <th>news_desc</th>
-      <th>news_photo</th>
+      <th>Id</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Photo</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>User_Id</th>
       <th>Edit</th>
       <th>Delete</th>
 
@@ -28,6 +31,9 @@
       <td>{{item.news_title}}</td>
       <td>{{item.news_desc}}</td>
       <td>{{item.news_photo}}</td>
+      <td>{{item.news_date}}</td>
+      <td>{{item.news_time}}</td>
+      <td>{{item.fk_u_email_id}}</td>
       
       <td><button (click)="updatenews(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
       <td><button (click)="deletenews(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
