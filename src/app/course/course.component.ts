@@ -12,11 +12,12 @@ import { CourseDataService } from '../shared/course-data.service';
 export class CourseComponent implements OnInit {
 
   allCourse:CourseModel[]=[];
+  delarr:CourseModel[]=[];
   constructor(public _course_data:CourseDataService,public _router:Router) { }
 
   ngOnInit() {
-
-    this._course_data.getAllCourses().subscribe(
+      
+     this._course_data.getAllCourses().subscribe(
 
       (data:CourseModel[])=>{
 
@@ -33,7 +34,7 @@ export class CourseComponent implements OnInit {
 
   addcourse()
   {
-    this._router.navigate(['/addcourse']);
+    this._router.navigate(['/addcourse',0]);
   }
 
   deletecourse(course:CourseModel)
@@ -49,5 +50,58 @@ export class CourseComponent implements OnInit {
 
   );
 }
+ updatecourse(item:CourseModel)
+  {
+      this._router.navigate(['/addcourse',item.course_id]);
+  } 
+i:number=0;
+    checkChange(item:CourseModel)
+    {
+      
+        if(this.delarr.find(x=>x==item))
+        {
+          this.delarr.splice(this.delarr.indexOf(item),1);
+        }
+        else
+        {
+          this.delarr.push(item);
+        }
+        console.log(this.delarr);
+      
+    }
+ 
+
+  deleteAll()
+    {
+      /*if(confirm("Are You Sure want to delete?"))
+      {
+        for(this.i=0;this.i<=this.delarr.length;this.i++)
+        {
+          this.deleteUser1(this.delarr[this.i]);
+        }
+      }*/
+      this._course_data.deleteAll(this.delarr).subscribe(
+        
+          (data:any)=>{
+            
+            for(this.i=0 ; this.i<this.delarr.length ; this.i++)
+            {
+               if(this.allCourse.find(x=>x==this.delarr[this.i]))
+                {
+                   this.allCourse.splice(this.allCourse.indexOf(this.delarr[this.i]),1);
+                 }
+            }
+            this.delarr=[];
+            
+          },
+          function(err){console.log(err);},
+          function(){
+
+            console.log("Complete");
+          }
+        
+      );
+    }
+ 
 
 }

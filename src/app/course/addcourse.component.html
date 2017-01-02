@@ -2,29 +2,17 @@
 
 <div class="container">
 
+        <div class="panel-heading" *ngIf="course_id==0" >Add Course</div>
+  <div class="panel-heading" *ngIf="course_id!=0" >Edit Course</div>
+
     <form (ngSubmit)="addcourse()">
 
-      <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Group Id</span>
-        <input type="number"  name="course_id" [(ngModel)]="course_id" class="form-control" placeholder="Enter Course_Id" aria-describedby="basic-addon1" required>
-    </div>
-
      <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Group Name</span>
+        <span class="input-group-addon" id="basic-addon1">Course Name</span>
         <input type="string"  name="course_name" [(ngModel)]="course_name" class="form-control" placeholder="Enter Course_Name" aria-describedby="basic-addon1" required>
     </div>
 
-     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Subject Id</span>
-        <input type="number"  name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter Subject_Id" aria-describedby="basic-addon1" required>
-    </div>
-
-     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Email Id</span>
-        <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Save </button>
     </form>
 
 </div>

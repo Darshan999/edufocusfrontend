@@ -9,23 +9,25 @@
 <table class="table">
     <thead>
       <th>Group_id</th>
-      <th>Group_name</th>
+      <th>Group_Date</th>
       <th>sub_id</th>
       <th>u_email_id</th>
-      <th>Edit</th>
+      
       <th>Delete</th> 
 
     </thead>
     <tbody>
     <tr *ngFor="let item of allGroup">
       <td>{{item.grp_id}}</td>
-      <td>{{item.grp_name}}</td>
+      <td>{{item.grp_date}}</td>
       <td>{{item.fk_sub_id}}</td>
       <td>{{item.fk_u_email_id}}</td>
     
-
-      <td><button (click)="updategroup(group)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+          
+      
+     <!-- <td><button (click)="updategroup(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>-->
       <td><button (click)="deletegroup(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+            
     </tr>
     </tbody>
   </table>

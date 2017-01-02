@@ -2,29 +2,34 @@
 
 <div class="panel panel-primary">
 
+  
     <div class="panel-heading">Subject Details</div>
 
     <button (click)="addsubject()"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
-
+     <button (click)="deleteallsubject()" class="btn btn-danger"><span>Delete All</span></button>
 <table class="table">
     <thead>
-      <th>Subject_id</th>
+     
+       <th><input type="checkbox" /></th>
       <th>Subject_name</th>
-      <th>que_id</th>
+       <th>Subject_photo</th>
+      <th>course Name</th>
       <th>u_email_id</th>
       <th>Edit</th>
       <th>Delete</th> 
 
     </thead>
     <tbody>
-    <tr *ngFor="let item of allSubject">
-      <td>{{item.sub_id}}</td>
+    <tr *ngFor="let item of allSubjectjoin">
+     
+     <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.sub_name}}</td>
-      <td>{{item.fk_que_id}}</td>
-      <td>{{item.fk_u_email_id}}</td>
+      <td>{{item.sub_photo}}</td>
+      <td>{{item.course_name}}</td>
+      <td>{{item.u_email_id}}</td>
     
 
-      <td><button (click)="updatesubject(group)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="updatesubject(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
       <td><button (click)="deletesubject(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
     </tr>
     </tbody>

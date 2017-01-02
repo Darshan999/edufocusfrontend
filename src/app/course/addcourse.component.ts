@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { CourseModel } from '../shared/course-model';
 import { CourseDataService } from '../shared/course-data.service';
+
+import { Subscription } from 'rxjs/Rx';
+
+
 @Component({
   selector: 'app-addcourse',
   templateUrl: './addcourse.component.html',
@@ -11,27 +15,76 @@ export class AddcourseComponent implements OnInit {
 
   course_id:number;
   course_name:string='';
-  fk_sub_id:number;
-  fk_u_email_id:string='';
-  constructor(private _course_data:CourseDataService,public _router:Router) { }
+ 
+  
+  private _subscription:Subscription;  
+  
+
+  constructor(private _course_data:CourseDataService,public _router:Router,public _acroute:ActivatedRoute) { }
 
   ngOnInit() {
+
+    this._subscription=this._acroute.params.subscribe(
+
+      (params:any)=>{
+
+       this.course_id =params["course_id"];
+      }
+    );
+
+    
+if(this.course_id!=0)
+    {
+      this._course_data.getCourseById(this.course_id).subscribe(
+
+        (data:CourseModel[])=>{
+          this.course_name=data[0].course_name;
+          
+        }
+      );
+    }
+
+
   }
 
    addcourse()
   {
-    this._course_data.addCourse(new CourseModel(this.course_id,this.course_name,this.fk_sub_id,this.fk_u_email_id))
+
+    if(this.course_id==0)
+    {
+            this._course_data.addCourse(new CourseModel(this.course_id,this.course_name))
+        .subscribe(
+          (data:any)=>{
+            console.log(data);
+            this._router.navigate(['/allcourses']);
+          },
+          function(error){},    
+          function()
+          {
+            alert('added');
+          }
+        );
+  }
+  else
+  {
+       //edit
+    this._course_data.updateCourse(new CourseModel(this.course_id,this.course_name))
     .subscribe(
       (data:any)=>{
-        console.log(data);
-        this._router.navigate(['/allcourses']);
-      },
-      function(error){},
-      function()
-      {
-        alert('added');
+ 
+         console.log(data); 
+         this._router.navigate(['/allcourses']); 
+    },
+    function(error){
+
+      alert(error);
+    },
+    function(){
+      alert('Updated');
       }
     );
+
+  }
   }
 
 }

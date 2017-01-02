@@ -23,7 +23,7 @@ export class GroupComponent implements OnInit {
         alert(error);
       },
       function(){
-        console.log('New User Added');
+        console.log('New member Added');
       }
     );
   
@@ -47,6 +47,8 @@ deletegroup(group:GroupModel)
 
   );
 }
+
+
 
 
 

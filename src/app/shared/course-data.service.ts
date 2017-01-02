@@ -6,6 +6,7 @@ import 'rxjs/Rx';
 export class CourseDataService {
 
   private url:string="http://localhost:3000/courses/";
+  
 
   constructor(private _http:Http) { }
 
@@ -13,7 +14,7 @@ export class CourseDataService {
   {
     return this._http.get(this.url).map((res:Response)=>res.json());
   }
-
+  
   getCourseById(id:number)
   {
     return this._http.get(this.url+id).map((res:Response)=>res.json());
@@ -36,4 +37,24 @@ export class CourseDataService {
 
     return this._http.delete(this.url+id,requestoptions).map((res:Response)=>res.json());
   }
+
+  deleteAll(course:CourseModel[]){
+  let body=JSON.stringify(course);
+   let headers=new Headers({'Content-Type':'application/json'});
+  let requestoption=new RequestOptions({headers:headers});
+  return this._http.post(this.url+1,body,requestoption).map((res:Response)=>res.json());
+  
+}
+  updateCourse(course:CourseModel){
+
+
+    let body=JSON.stringify(course);
+    let headers=new Headers({'Content-Type':'application/json'});
+    let requestoption=new RequestOptions({headers});
+
+    console.log(this.url+course.course_id);
+    return this._http.put(this.url+course.course_id,body,requestoption).map((res:Response)=>res.json());
+
+
+}
 }
