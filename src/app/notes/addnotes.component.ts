@@ -13,6 +13,7 @@ export class AddnotesComponent implements OnInit {
 
 notes_id:number;
 notes_title:string='';
+notes:string='';
 fk_u_email_id:string='';
 fk_sub_id:number;
 
@@ -23,7 +24,7 @@ fk_sub_id:number;
 
   addnotes()
   {
-    this._notes_data.addNotes(new NotesModel(this.notes_id,this.notes_title,this.fk_u_email_id,this.fk_sub_id))
+    this._notes_data.addNotes(new NotesModel(this.notes_id,this.notes_title,this.notes,this.fk_u_email_id,this.fk_sub_id))
     .subscribe(
       (data:any)=>{
         console.log(data);

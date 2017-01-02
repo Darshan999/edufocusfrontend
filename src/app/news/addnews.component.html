@@ -23,6 +23,21 @@
         <input type="text" name="news_photo" [(ngModel)]="news_photo" class="form-control" placeholder="Enter the image" aria-describedby="basic-addon1" required>
     </div>
 
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Date</span>
+        <input type="text" name="news_date" [(ngModel)]="news_date" class="form-control" placeholder="Enter the Date" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Time</span>
+        <input type="text" name="news_time" [(ngModel)]="news_time" class="form-control" placeholder="Enter the time" aria-describedby="basic-addon1" required>
+    </div>
+
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">User_Id</span>
+        <input type="text" name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter User Email Id" aria-describedby="basic-addon1" required>
+    </div>
+
     <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add News</button>
     </form>
 

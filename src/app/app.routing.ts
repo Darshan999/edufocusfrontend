@@ -42,7 +42,7 @@ const router:Routes=[
 
 
     {path:'allquestions',component:QuestionComponent},
-    {path:'addquestion',component:AddquestionComponent},
+    {path:'addquestion/:que_id',component:AddquestionComponent},
     {path:'allblogs',component:BlogComponent},
     {path:'addblog',component:AddblogComponent},
     {path:'allnews',component:NewsComponent},

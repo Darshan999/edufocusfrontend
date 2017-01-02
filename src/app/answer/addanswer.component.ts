@@ -13,6 +13,7 @@ export class AddanswerComponent implements OnInit {
     ans_desc:string='';
     ans_date:string='';
     ans_time:string='';
+    flag:string='';
     view:number;
     fk_que_id:number;
     fk_u_email_id:string='';
@@ -24,7 +25,7 @@ export class AddanswerComponent implements OnInit {
 
    addanswer()
   {
-    this._answer_data.addAnswer(new AnswerModel(this.ans_id,this.ans_desc,this.ans_date,this.ans_time,this.view,this.fk_que_id,this.fk_u_email_id))
+    this._answer_data.addAnswer(new AnswerModel(this.ans_id,this.ans_desc,this.ans_date,this.ans_time,this.flag,this.view,this.fk_que_id,this.fk_u_email_id))
     .subscribe(
       (data:any)=>{
         console.log(data);

@@ -11,6 +11,7 @@ import { UserDataService } from '../shared/user-data.service';
 export class UserComponent implements OnInit {
 
 allUser:UserModel[]=[];
+delarr:UserModel[]=[];
 
   constructor(public _user_data:UserDataService,public _router:Router) { }
 
@@ -48,6 +49,58 @@ deleteuser(item:UserModel)
 
   );
 }
+
+    i:number=0;
+    checkChange(item:UserModel)
+    {
+      
+        if(this.delarr.find(x=>x==item))
+        {
+          this.delarr.splice(this.delarr.indexOf(item),1);
+        }
+        else
+        {
+          this.delarr.push(item);
+        }
+        console.log(this.delarr);
+      
+    }
+
+    deleteAll()
+    {
+      /*if(confirm("Are You Sure want to delete?"))
+      {
+        for(this.i=0;this.i<=this.delarr.length;this.i++)
+        {
+          this.deleteUser1(this.delarr[this.i]);
+        }
+      }*/
+      this._user_data.deleteAll(this.delarr).subscribe(
+        
+          (data:any)=>{
+            
+            for(this.i=0 ; this.i<this.delarr.length ; this.i++)
+            {
+               if(this.allUser.find(x=>x==this.delarr[this.i]))
+                {
+                   this.allUser.splice(this.allUser.indexOf(this.delarr[this.i]),1);
+                 }
+            }
+            this.delarr=[];
+            
+          },
+          function(err){console.log(err);},
+          function(){
+
+            console.log("Complete");
+          }
+        
+      );
+    }
+ 
+
+
+
 
 
 }

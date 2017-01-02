@@ -15,6 +15,9 @@ news_id:number;
 news_title:string='';
 news_desc:string='';
 news_photo:string='';
+news_date:string='';
+news_time:string='';
+fk_u_email_id:string='';
 
   constructor(public _news_data:NewsDataService,public _router:Router) { }
 
@@ -23,7 +26,7 @@ news_photo:string='';
 
   addnews()
   {
-    this._news_data.addNews(new NewsModel(this.news_id,this.news_title,this.news_desc,this.news_photo))
+    this._news_data.addNews(new NewsModel(this.news_id,this.news_title,this.news_desc,this.news_photo,this.news_date,this.news_time,this.fk_u_email_id))
     .subscribe(
       (data:any)=>{
         console.log(data);
