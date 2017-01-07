@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GroupModel } from '../shared/group-model';
 import { GroupDataService } from '../shared/group-data.service';
+import { GroupJoinModel } from '../shared/group-join-model';
 @Component({
   selector: 'app-group',
   templateUrl: './group.component.html',
@@ -10,14 +11,16 @@ import { GroupDataService } from '../shared/group-data.service';
 export class GroupComponent implements OnInit {
 
   allGroup:GroupModel[]=[];
+  allGroupjoin:GroupJoinModel[]=[];
+   delarr:GroupModel[]=[];
   constructor(public _group_data:GroupDataService,public _router:Router) { }
 
   ngOnInit() {
     
-       this._group_data.getAllGroups().subscribe(
+       this._group_data.getAllGroupsJoin().subscribe(
 
-      (data:GroupModel[])=>{
-        this.allGroup=data;
+      (data:GroupJoinModel[])=>{
+        this.allGroupjoin=data;
       },
       function(error){
         alert(error);
@@ -34,11 +37,13 @@ addgroup()
   this._router.navigate(['/addgroup']);
 }
 
-deletegroup(group:GroupModel)
+deletegroup(group:GroupJoinModel)
 {
+   if(confirm("Are You Sure want to delete?"))
+    {
   this._group_data.deleteGroup(group.grp_id).subscribe(
     (data:any)=>{
-      this.allGroup.splice(this.allGroup.indexOf(group),1);
+      this.allGroupjoin.splice(this.allGroupjoin.indexOf(group),1);
       alert("Deleted");
     },
     function(error){
@@ -46,8 +51,56 @@ deletegroup(group:GroupModel)
     }
 
   );
+    }
 }
 
+
+i:number=0;
+    checkChange(item:GroupModel)
+    {
+      
+        if(this.delarr.find(x=>x==item))
+        {
+          this.delarr.splice(this.delarr.indexOf(item),1);
+        }
+        else
+        {
+          this.delarr.push(item);
+        }
+        console.log(this.delarr);
+      
+    }
+    deleteAll()
+    {
+      /*if(confirm("Are You Sure want to delete?"))
+      {
+        for(this.i=0;this.i<=this.delarr.length;this.i++)
+        {
+          this.deleteUser1(this.delarr[this.i]);
+        }
+      }*/
+      this._group_data.deleteAllGroup(this.delarr).subscribe(
+        
+          (data:any)=>{
+            
+            for(this.i=0 ; this.i<this.delarr.length ; this.i++)
+            {
+               if(this.allGroup.find(x=>x==this.delarr[this.i]))
+                {
+                   this.allGroup.splice(this.allGroup.indexOf(this.delarr[this.i]),1);
+                 }
+            }
+            this.delarr=[];
+            
+          },
+          function(err){console.log(err);},
+          function(){
+
+            console.log("Complete");
+          }
+        
+      );
+    }
 
 
 

@@ -39,6 +39,8 @@ export class CourseComponent implements OnInit {
 
   deletecourse(course:CourseModel)
 {
+  if(confirm("Are You Sure want to delete?"))
+    {
   this._course_data.deleteCourse(course.course_id).subscribe(
     (data:any)=>{
       this.allCourse.splice(this.allCourse.indexOf(course),1);
@@ -47,8 +49,9 @@ export class CourseComponent implements OnInit {
     function(error){
       alert(error);
     }
-
+    
   );
+    }
 }
  updatecourse(item:CourseModel)
   {

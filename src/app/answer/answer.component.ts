@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AnswerModel } from '../shared/answer-model';
 import { AnswerDataService } from '../shared/answer-data.service';
 import { Router } from '@angular/router';
+import { AnswerJoinModel } from '../shared/answer-join-model';
 
 @Component({
   selector: 'app-answer',
@@ -11,6 +12,8 @@ import { Router } from '@angular/router';
 export class AnswerComponent implements OnInit {
 
   allAnswer:AnswerModel[]=[];
+  allAnswerjoin:AnswerJoinModel[]=[];
+
   constructor(public _answer_data:AnswerDataService,public _router:Router) { }
 
   ngOnInit() {
@@ -34,11 +37,13 @@ export class AnswerComponent implements OnInit {
 
    addanswer()
   {
-    this._router.navigate(['/addanswer']);
+    this._router.navigate(['/addanswer',0]);
   }
 
   deleteanswer(answer:AnswerModel)
 {
+   if(confirm("Are You Sure want to delete?"))
+    {
   this._answer_data.deleteAnswer(answer.ans_id).subscribe(
     (data:any)=>{
       this.allAnswer.splice(this.allAnswer.indexOf(answer),1);
@@ -49,6 +54,15 @@ export class AnswerComponent implements OnInit {
     }
 
   );
+    }
 }
+
+
+   updateanswer(item:AnswerModel)
+  {
+   
+      this._router.navigate(['/addanswer',item.ans_id]);
+  }
+
 
 }

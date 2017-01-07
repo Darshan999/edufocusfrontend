@@ -13,7 +13,7 @@ export class SubjectComponent implements OnInit {
   allSubject:SubjectModel[]=[];
 allSubjectjoin:SubjectJoinModel[]=[];
 
-    delarr:SubjectModel[]=[];
+    delarr:SubjectJoinModel[]=[];
 
   constructor(public _subject_data:SubjectDataService,public _router:Router) { }
 
@@ -44,7 +44,7 @@ deletesubject(subject:SubjectJoinModel)
 {
   this._subject_data.deleteSubject(subject.sub_id).subscribe(
     (data:any)=>{
-      this.allSubjectjoin.splice(this.allSubject.indexOf(subject),1);
+      this.allSubjectjoin.splice(this.allSubjectjoin.indexOf(subject),1);
       alert("Deleted");
     },
     function(error){
@@ -55,7 +55,7 @@ deletesubject(subject:SubjectJoinModel)
 }
 
 i:number=0;
-    checkChange(item:SubjectModel)
+    checkChange(item:SubjectJoinModel)
     {
       
         if(this.delarr.find(x=>x==item))
@@ -84,9 +84,9 @@ i:number=0;
             
             for(this.i=0 ; this.i<this.delarr.length ; this.i++)
             {
-               if(this.allSubject.find(x=>x==this.delarr[this.i]))
+               if(this.allSubjectjoin.find(x=>x==this.delarr[this.i]))
                 {
-                   this.allSubject.splice(this.allSubject.indexOf(this.delarr[this.i]),1);
+                   this.allSubjectjoin.splice(this.allSubjectjoin.indexOf(this.delarr[this.i]),1);
                  }
             }
             this.delarr=[];

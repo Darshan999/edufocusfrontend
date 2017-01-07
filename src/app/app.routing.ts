@@ -21,6 +21,7 @@ import { NewsComponent } from './news/news.component';
 import { AddnewsComponent } from './news/addnews.component';
 import { NotesComponent } from './notes/notes.component';
 import { AddnotesComponent } from './notes/addnotes.component';
+import { AnslinkComponent } from './question/anslink.component';
 
 const router:Routes=[
     {path:'',redirectTo:'/allusers',pathMatch:'full'},
@@ -34,7 +35,7 @@ const router:Routes=[
      {path:'allsubjects',component:SubjectComponent},
      {path:'addsubject/:sub_id',component:AddsubjectComponent},
       {path:'allanswers',component:AnswerComponent},
-       {path:'addanswer',component:AddanswerComponent},
+       {path:'addanswer/:ans_id',component:AddanswerComponent},
        {path:'allvideos',component:VideoComponent},
        {path:'addvideo',component:AddvideoComponent},
 
@@ -48,7 +49,8 @@ const router:Routes=[
     {path:'allnews',component:NewsComponent},
     {path:'addnews',component:AddnewsComponent},
     {path:'allnotes',component:NotesComponent},
-    {path:'addnotes',component:AddnotesComponent}
+    {path:'addnotes/:notes_id',component:AddnotesComponent},
+    {path:'anslink/:que_id',component:AnslinkComponent}
     
     
     

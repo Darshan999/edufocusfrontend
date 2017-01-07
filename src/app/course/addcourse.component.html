@@ -1,10 +1,13 @@
+<div>
 <app-header></app-header>
+</div>
 
 <div class="container">
 
-        <div class="panel-heading" *ngIf="course_id==0" >Add Course</div>
-  <div class="panel-heading" *ngIf="course_id!=0" >Edit Course</div>
-
+     <div class="panel panel-primary">
+  <div class="panel-heading" *ngIf="notes_id==0" ><h2 class="text">Add Notes</h2></div>
+  <div class="panel-heading" *ngIf="notes_id!=0" ><h2 class="text">Edit Notes</h2></div>
+  <div class="panel-body">
     <form (ngSubmit)="addcourse()">
 
      <div class="input-group">
@@ -14,5 +17,5 @@
 
     <button type="submit" class="btn btn-primary" style="margin-top: 10px">Save </button>
     </form>
-
+  </div></div>
 </div>

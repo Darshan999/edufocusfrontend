@@ -6,12 +6,17 @@ import 'rxjs/Rx';
 export class GroupDataService {
 
   private url:string="http://localhost:3000/groups/";
+  private url1:string="http://localhost:3000/groupjoin/";
 
   constructor(private _http:Http) { }
 
   getAllGroups()
   {
     return this._http.get(this.url).map((res:Response)=>res.json());
+  }
+    getAllGroupsJoin()
+  {
+    return this._http.get(this.url1).map((res:Response)=>res.json());
   }
   getGroupById(id:number)
   {
@@ -34,6 +39,14 @@ export class GroupDataService {
 
     return this._http.delete(this.url+id,requestoptions).map((res:Response)=>res.json());
   }
+
+  deleteAllGroup(item:GroupModel[]){
+  let body=JSON.stringify(item);
+   let headers=new Headers({'Content-Type':'application/json'});
+  let requestoption=new RequestOptions({headers:headers});
+  return this._http.post(this.url+1,body,requestoption).map((res:Response)=>res.json());
+  
+}
 
    updateGroup(group:GroupModel)
   {

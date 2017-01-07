@@ -32,6 +32,10 @@ delarr:QuestionjoinModel[]=[];
     );
   }
 
+  ques(item:QuestionjoinModel){
+    this._router.navigate(['/anslink',item.que_id]);
+  }
+
  addquestion()
   {
     this._router.navigate(['/addquestion',0]);
@@ -68,6 +72,8 @@ delarr:QuestionjoinModel[]=[];
         console.log(this.delarr);
       
     }
+
+
 
     deleteAll()
     {

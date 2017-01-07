@@ -1,10 +1,14 @@
+<div>
 <app-header></app-header>
+</div>
 
 <div class="container">
 
- <h2 >ADD Group</h2>
 
+ <div class="panel panel-primary">
+<div class="panel-heading"><h2 class="text">Add Group</h2></div>
 
+<div class="panel-body">
     <form (ngSubmit)="addgroup()">
 
 
@@ -14,12 +18,16 @@
     </div>
 
        
-
-
-     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Subject Id</span>
-        <input type="number"  name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter Subject_Id" aria-describedby="basic-addon1" required>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Subject Name</span>
+        
+        <select class="form-control" id="fk_sub_id" [(ngModel)]="fk_sub_id" name="fk_sub_id"required >
+        <option *ngFor="let s of allSubject" [value]="s.sub_id">{{s.sub_name}}</option>
+        </select>
     </div>
+
+
+  
 
      <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Email Id</span>
@@ -28,6 +36,8 @@
 
     <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
     </form>
+</div>
+ </div>
 
 </div>
 
