@@ -21,6 +21,12 @@ private url1:string="http://localhost:3000/questionjoin/";
     return this._http.get(this.url1).map((res:Response)=>res.json());
   }
 
+  getQuestionByIdJoin(id:number)
+  {
+    return this._http.get(this.url1+id).map((res:Response)=>res.json());
+  }
+
+
   getQuestionById(id:number)
   {
     return this._http.get(this.url+id).map((res:Response)=>res.json());

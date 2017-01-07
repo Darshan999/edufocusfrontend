@@ -1,13 +1,18 @@
+<div>
 <app-header></app-header>
+</div>
 
 <div class="container">
 
+ <div class="panel panel-primary">
+    <div class="panel-heading" *ngIf="ans_id==0" ><h2 class="text">Add Answer Here</h2></div>
+  <div class="panel-heading" *ngIf="ans_id!=0" ><h2 class="text">Edit Answer Here</h2></div>
+
+
+<div class="panel-body">
     <form (ngSubmit)="addanswer()">
 
-      <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Answer Id</span>
-        <input type="number"  name="ans_id" [(ngModel)]="ans_id" class="form-control" placeholder="Enter Answer_Id" aria-describedby="basic-addon1" required>
-    </div>
+    
 
      <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Answer Desc</span>
@@ -44,8 +49,11 @@
         <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required>
     </div>
 
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">save </button>
     </form>
+</div>
+     
+    </div>
 
 </div>
 

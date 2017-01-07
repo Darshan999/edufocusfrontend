@@ -3,6 +3,9 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { GroupModel } from '../shared/group-model';
 import { GroupDataService } from '../shared/group-data.service';
 import { Subscription } from 'rxjs/Rx';
+import { SubjectModel } from '../shared/subject-model';
+import { SubjectDataService } from '../shared/subject-data.service';
+
 @Component({
   selector: 'app-addgroup',
   templateUrl: './addgroup.component.html',
@@ -17,11 +20,16 @@ private _subscription:Subscription;
   fk_sub_id:number;
   fk_u_email_id:string='';
 
-  constructor(private _agroute:ActivatedRoute,private _group_data:GroupDataService,public _router:Router) { }
+allSubject:SubjectModel[]=[];
+  constructor(private _agroute:ActivatedRoute,private _group_data:GroupDataService,public _router:Router,private _subject_data:SubjectDataService) { }
 
   ngOnInit() {
 
-    
+     this._subject_data.getAllSubjects().subscribe(
+      (data:SubjectModel[])=>{
+        this.allSubject=data;
+      }
+    );
     
   }
 

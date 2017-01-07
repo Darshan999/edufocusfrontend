@@ -1,36 +1,59 @@
+
+<div>
+<app-header></app-header>
+</div>
+
 <app-sidebar></app-sidebar>
+
 
 <div class="container">
 
+     <div class="panel panel-primary">
+  <div class="panel-heading" *ngIf="notes_id==0" ><h2 class="text">Add Notes</h2></div>
+  <div class="panel-heading" *ngIf="notes_id!=0" ><h2 class="text">Edit Notes</h2></div>
+      
+ <div class="panel-body">
     <form (ngSubmit)="addnotes()">
-    <div class="input-group">
+   <!-- <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Id</span>
         <input type="text"  name="notes_id" [(ngModel)]="notes_id" class="form-control" placeholder="Enter Notes_id" aria-describedby="basic-addon1" required>
     </div>
-
+-->
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Title</span>
         <input type="text" name="notes_title" [(ngModel)]="notes_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
     </div>
-
+         <br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Notes</span>
         <input type="text" name="notes" [(ngModel)]="notes" class="form-control" placeholder="Enter Path of your Notes" aria-describedby="basic-addon1" required> 
     </div>
-
+     <br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">U_Email_Id</span>
         <input type="text" name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter user Email_id" aria-describedby="basic-addon1" required>
     </div>
+    <br/>
 
     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Subject Name</span>
+        
+        <select class="form-control" id="fk_sub_id" [(ngModel)]="fk_sub_id" name="fk_sub_id"required >
+        <option *ngFor="let s of allSubject" [value]="s.sub_id">{{s.sub_name}}</option>
+        </select>
+    </div>
+  
+   <!-- <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Sub_Id</span>
         <input type="text" name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter subject id" aria-describedby="basic-addon1" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add Notes</button>
+    </div>-->
+         <br/>
+    <button type="submit" class="btn btn-primary" style="margin-top: 10px">save</button>
+   
+     
     </form>
-
+ </div>
+       </div>
 </div>
 
 

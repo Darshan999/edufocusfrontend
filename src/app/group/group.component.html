@@ -1,34 +1,44 @@
-<app-header></app-header>
+<div class="row">
+  <app-header></app-header>
+</div>
 
-<div class="panel panel-primary">
 
-    <div class="panel-heading">Group Details</div>
+    <h2 class="text">Group Details</h2>
+        <div class="panel-body">
 
-    <button (click)="addgroup()"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+          
+       <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">group search</span>
+        <input type="text" #search (keyup)="0" class="form-control" placeholder="Enter group search" aria-describedby="basic-addon1" required>
+    </div>
 
+    
+    <button (click)="addgroup()" class="btn btn-primary"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+     <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
+        </div>
 <table class="table">
     <thead>
-      <th>Group_id</th>
+      <tr>
+       <th><input type="checkbox" /></th>
       <th>Group_Date</th>
-      <th>sub_id</th>
-      <th>u_email_id</th>
+      <th>Subject Name</th>
+      <th>User Name</th>
       
       <th>Delete</th> 
-
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of allGroup">
-      <td>{{item.grp_id}}</td>
+    <tr *ngFor="let item of (allGroupjoin | groupfilter:search.value )">
+     <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.grp_date}}</td>
-      <td>{{item.fk_sub_id}}</td>
-      <td>{{item.fk_u_email_id}}</td>
+      <td>{{item.sub_name}}</td>
+      <td>{{item.u_name}}</td>
     
           
       
      <!-- <td><button (click)="updategroup(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>-->
-      <td><button (click)="deletegroup(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletegroup(item)"  class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
             
     </tr>
     </tbody>
   </table>
-  </div>

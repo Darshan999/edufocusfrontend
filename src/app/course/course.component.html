@@ -1,33 +1,52 @@
-<app-header></app-header>
+<div class="row">
+  <app-header></app-header>
+</div>
 
-<div class="panel panel-primary">
 
-    <div class="panel-heading">Course Details</div>
 
-    <button (click)="addcourse()"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+    <h2 class="text">Course Details</h2>
+      <div class="panel-body">
+        <form action="" class="search-form">
+         <div class="form-group has-feedback">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text"  #search (keyup)="0" class="form-control" name="search" id="search" placeholder="search">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+        	</div>
+        </form>
+
+       <!--  <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Course search</span>
+        <input type="text" #search (keyup)="0" class="form-control" placeholder="Enter course search" aria-describedby="basic-addon1" required>
+    </div> -->
+
+    <button (click)="addcourse()"  class="btn btn-primary"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
     <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
 
+      </div>
 <table class="table">
     <thead>
-    
+      <tr>
       <th><input type="checkbox" /></th>
       <th>Course_name</th>
     
       <th>Edit</th>
       <th>Delete</th> 
-
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of allCourse">
+    <tr *ngFor="let item of (allCourse | coursefilter:search.value | paginate: { itemsPerPage: 2, currentPage: page })">
      
       <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.course_name}}</td>
      
     
 
-      <td><button (click)="updatecourse(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
-      <td><button (click)="deletecourse(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      <td><button (click)="updatecourse(item)"  class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletecourse(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
     </tr>
     </tbody>
   </table>
-  </div>
+  <div class="has-text-centered">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
+ 

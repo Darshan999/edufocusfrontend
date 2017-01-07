@@ -1,3 +1,13 @@
+
+
+
+<div class="row">
+  <app-header></app-header>
+</div>
+
+  <!-- Table -->
+  
+
 <app-header></app-header>
 <div id="page-wrapper">
 <div class="container-fluid">
@@ -7,37 +17,47 @@
 
       <div class="panel panel-primary">
 
-    <div class="panel-heading">Notes Details</div>
 
-    <button (click)="addnotes()" style="margin-left: 1326px;
-    border-radius: 43px;
-    color: white;
-    background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+    <h2 class="text">Notes Details</h2>
+    <div class="panel-body">
 
+       <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">notes search</span>
+        <input type="text" #search (keyup)="0" class="form-control" placeholder="Enter notes search" aria-describedby="basic-addon1" required>
+    </div>
+
+    <button (click)="addnotes()"  class="btn btn-primary" ><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+   <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
+    </div>
 <table class="table">
     <thead>
+      <tr>
+          <th><input type="checkbox" /></th>
       <th>Id</th>
       <th>Title</th>
       <th>Notes</th>
       <th>User Email_id</th>
-      <th>Subject_Id</th>
+      <th>Subject Name</th>
       <th>Edit</th>
       <th>Delete</th>
-
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of allNotes">
+    <tr *ngFor="let item of (allNotesjoin | notesfilter:search.value) ">
+       <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.notes_id}}</td>
       <td>{{item.notes_title}}</td>
       <td>{{item.notes}}</td>
       <td>{{item.fk_u_email_id}}</td>
-      <td>{{item.fk_sub_id}}</td>
+      <td>{{item.sub_name}}</td>
       
-      <td><button (click)="updatenotes(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
-      <td><button (click)="deletenotes(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      <td><button (click)="updatenotes(item)"  class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletenotes(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
     </tr>
     </tbody>
   </table>
+
+
   </div>      
     </div>
   </div>
@@ -47,4 +67,5 @@
 </div>
 
   <!-- Table -->
+
   

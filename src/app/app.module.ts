@@ -43,8 +43,21 @@ import { AddnewsComponent } from './news/addnews.component';
 
 import { NotesComponent } from './notes/notes.component';
 import { AddnotesComponent } from './notes/addnotes.component';
+
+import { AnslinkComponent } from './question/anslink.component';
+import { SubjectfilterPipe } from './subject/subjectfilter.pipe';
+import { UserfilterPipe } from './user/userfilter.pipe';
+import { NotesfilterPipe } from './notes/notesfilter.pipe';
+import { CoursefilterPipe } from './course/coursefilter.pipe';
+import { GroupfilterPipe } from './group/groupfilter.pipe';
+
+
 import { SidebarComponent } from './sidebar.component';
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0e1c01cf7e1f7de83d22e8fbe95ce196c9c19ab7
 
 import { PaginatePipe } from './ng2paging/paginate.pipe';
 import { PaginationService } from './ng2paging/pagination.service';
@@ -80,11 +93,28 @@ import { PaginationInstance } from './ng2paging/pagination-instance';
     AddnewsComponent,
     NotesComponent,
     AddnotesComponent,
+
+    AnslinkComponent,
+    SubjectfilterPipe,
+    UserfilterPipe,
+    NotesfilterPipe,
+    CoursefilterPipe,
+    GroupfilterPipe,
+
+     
+    PaginatePipe,
+    PaginationControlsComponent,
+    PaginationControlsDirective,
+ 
+
+
     SidebarComponent,
+
 
     PaginatePipe,
     PaginationControlsComponent,
     PaginationControlsDirective
+
 
 
   ],
@@ -95,7 +125,11 @@ import { PaginationInstance } from './ng2paging/pagination-instance';
     routing
   ],
 
+
+  
+
   providers: [UserDataService,QuestionDataService,GroupDataService,CourseDataService,SubjectDataService,AnswerDataService,VideoDataService,BlogDataService,NewsDataService,NotesDataService,PaginationService],
+
 
 
   bootstrap: [AppComponent]
