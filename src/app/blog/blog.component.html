@@ -1,49 +1,57 @@
+<div class="row">
+  <app-header></app-header>
+</div>
 
 
-<app-header></app-header>
+  <div id="page-wrapper">
 
   <!-- Table -->
-  <div class="panel panel-primary">
+  <div class="container-fluid">
+    <div class="row">
 
-    <div class="panel-heading">Blogs Details</div>
-
-    <button (click)="addblog()" style="margin-left: 1326px;
-    border-radius: 43px;
-    color: white;
-    background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
-
+    
+    <h2 class="text">Blogs Details</h2>
+    <div class="panel-body">
+    <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
+    <button (click)="addblog()" class="btn btn-primary" ><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+   
+    </div>
 <table class="table">
     <thead>
-      <th>blog_id</th>
-      <th>blog_title</th>
-      <th>blog_desc</th>
-      <th>blog_date</th>
-      <th>blog_time</th>
-      <th>blog_photo</th>
-      <th>flag</th>
-      <th>view</th>
-      <th>fk_email_id</th>
-      <th>fk_sub_id</th>
-      <th>Approve</th>
-      <th>Dis-Approve</th>
+      <tr>
+      <th><input type="checkbox" /></th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Photo</th>
+      <th>View</th>
+      <th>User_Name</th>
+      <th>Subject_Name</th>
+      <th>Update</th>
+      <th>Delete</th>
+      </tr>
 
     </thead>
     <tbody>
-    <tr *ngFor="let item of allBlog">
-      <td>{{item.blog_id}}</td>
+    <tr *ngFor="let item of allBlogjoin">
+      <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.blog_title}}</td>
       <td>{{item.blog_desc}}</td>
       <td>{{item.blog_date}}</td>
       <td>{{item.blog_time}}</td>
       <td>{{item.blog_photo}}</td>
-      <td>{{item.flag}}</td>
       <td>{{item.view}}</td>
-      <td>{{item.fk_email_id}}</td>
-      <td>{{item.fk_sub_id}}</td>
+      <td>{{item.u_name}}</td>
+      <td>{{item.sub_name}}</td>
 
-      <td><button (click)="updateblog(item)"><span class="glyphicon glyphicon-ok" arial-hidden="true"></span></button></td>
-      <td><button (click)="deleteblog(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      <td><button (click)="updateblog(item)" class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deleteblog(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      
     </tr>
     </tbody>
   </table>
+    </div>
   </div>
+  </div>
+  

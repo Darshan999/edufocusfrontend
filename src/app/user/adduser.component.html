@@ -1,54 +1,78 @@
+<div class="row">
 <app-header></app-header>
+</div>
 
-<div class="container">
 
-    <form (ngSubmit)="adduser()">
+<div class="container-fluid">
+
+    <form *ngIf="!flag" (ngSubmit)="adduser()">
+       <div class="panel panel-primary dd">
+         <div class="panel-heading" style="background-color: #489fdf"><h2 class="text">Add User</h2></div>
+
+         <div class="panel-body">
+
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Id</span>
-        <input type="text"  name="Id" [(ngModel)]="Id" class="form-control" placeholder="Enter Email_id" aria-describedby="basic-addon1" required>
+        <span class="input-group-addon" id="basic-addon1">Email_Id</span>
+        <input type="text" name="u_email_id" [(ngModel)]="u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required> 
     </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Name</span>
+        <input type="text" name="u_name" [(ngModel)]="u_name" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon1" required> 
+    </div>
+<br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="text" name="u_photo" [(ngModel)]="u_photo" class="form-control" placeholder="Enter the path of Image" aria-describedby="basic-addon1" required>
+    </div>
+<br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Mobile_No</span>
+        <input type="text" name="u_mobile_no" [(ngModel)]="u_mobile_no" class="form-control" placeholder="Enter Mobile_No" aria-describedby="basic-addon1" required>
+    </div>
+<br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Gender</span>
+        <input type="text" name="u_gender" [(ngModel)]="u_gender" class="form-control" placeholder="Enter the Gender" aria-describedby="basic-addon1" required>
+    </div>
+<br/>
+  <button type="submit" style="    background-color: #489fdf" class="btn btn-primary addbtn" >Add User</button>
+
+    </div>
+    </div>
+    </form>
+
+
+    <form *ngIf="flag"(ngSubmit)="updateuser()">    
+<div class="panel panel-success dd">
+   
+<div class="panel-heading"><h2 style="text-align:center">Edit User</h2></div>
+
+  <div class="panel-body">
 
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Name</span>
-        <input type="text" name="Name" [(ngModel)]="Name" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon1" required> 
+        <input type="text" name="u_name" [(ngModel)]="u_name" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon1" required> 
     </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Password</span>
-        <input type="text" name="Password" [(ngModel)]="Password" class="form-control" placeholder="Enter Password" aria-describedby="basic-addon1" required>
-    </div>
-
+<br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Photo</span>
-        <input type="text" name="Photo" [(ngModel)]="Photo" class="form-control" placeholder="Enter the path of Image" aria-describedby="basic-addon1" required>
+        <input type="text" name="u_photo" [(ngModel)]="u_photo" class="form-control" placeholder="Enter the path of Image" aria-describedby="basic-addon1" required>
     </div>
-
+<br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Mobile_No</span>
-        <input type="text" name="Mobile_No" [(ngModel)]="Mobile_No" class="form-control" placeholder="Enter Mobile_No" aria-describedby="basic-addon1" required>
+        <input type="text" name="u_mobile_no" [(ngModel)]="u_mobile_no" class="form-control" placeholder="Enter Mobile_No" aria-describedby="basic-addon1" required>
     </div>
-
+<br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Gender</span>
-        <input type="text" name="Gender" [(ngModel)]="Gender" class="form-control" placeholder="Enter the Gender" aria-describedby="basic-addon1" required>
+        <input type="text" name="u_gender" [(ngModel)]="u_gender" class="form-control" placeholder="Enter the Gender" aria-describedby="basic-addon1" required>
     </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Active</span>
-        <input type="text" name="Active" [(ngModel)]="Active" class="form-control" placeholder="Active or Not?" aria-describedby="basic-addon1" required>
+<br/>
+  <button type="submit" class="btn btn-success editbtn">Edit User</button>
     </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Status</span>
-        <input type="text" name="Status" [(ngModel)]="Status" class="form-control" placeholder="On or Off?" aria-describedby="basic-addon1" required>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Type</span>
-        <input type="text" name="Type" [(ngModel)]="Type" class="form-control" placeholder="Enter your Type" aria-describedby="basic-addon1" required>
-    </div>
-
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add User </button>
+  </div>    
     </form>
 
 </div>
