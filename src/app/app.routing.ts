@@ -25,7 +25,7 @@ import { AddnotesComponent } from './notes/addnotes.component';
 const router:Routes=[
     {path:'',redirectTo:'/allusers',pathMatch:'full'},
     {path:'allusers',component:UserComponent},
-    {path:'adduser',component:AdduserComponent},
+    {path:'adduser/:u_email_id',component:AdduserComponent},
 
     {path:'allgroups',component:GroupComponent},
      {path:'addgroup',component:AddgroupComponent},
@@ -44,9 +44,9 @@ const router:Routes=[
     {path:'allquestions',component:QuestionComponent},
     {path:'addquestion/:que_id',component:AddquestionComponent},
     {path:'allblogs',component:BlogComponent},
-    {path:'addblog',component:AddblogComponent},
+    {path:'addblog/:blog_id',component:AddblogComponent},
     {path:'allnews',component:NewsComponent},
-    {path:'addnews',component:AddnewsComponent},
+    {path:'addnews/:news_id',component:AddnewsComponent},
     {path:'allnotes',component:NotesComponent},
     {path:'addnotes',component:AddnotesComponent}
     

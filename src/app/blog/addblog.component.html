@@ -1,60 +1,86 @@
+<div class="row">
 <app-header></app-header>
+</div>
 
-<div class="container">
+<div class="container-fluid">
 
-    <form (ngSubmit)="addblog()">
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Id</span>
-        <input type="text"  name="blog_id" [(ngModel)]="blog_id" class="form-control" placeholder="Enter Blog_id" aria-describedby="basic-addon1" required>
-    </div>
+
+
+    <form *ngIf="blog_id==0"(ngSubmit)="addblog()">
+        <div class="panel panel-primary dd">
+   
+<div class="panel-heading" style="background-color: #489fdf"><h2 class="text">Add Blogs</h2></div>
+
+  <div class="panel-body">
 
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Title</span>
         <input type="text" name="blog_title" [(ngModel)]="blog_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
     </div>
-
+    <br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Description</span>
         <input type="text" name="blog_desc" [(ngModel)]="blog_desc" class="form-control" placeholder="Enter Description" aria-describedby="basic-addon1" required>
     </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Date</span>
-        <input type="text" name="blog_date" [(ngModel)]="blog_date" class="form-control" placeholder="Date of Blog" aria-describedby="basic-addon1" required>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Time</span>
-        <input type="text" name="blog_time" [(ngModel)]="blog_time" class="form-control" placeholder="Time of Blog" aria-describedby="basic-addon1" required>
-    </div>
-
+    <br/>
+    
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Photo</span>
         <input type="text" name="blog_photo" [(ngModel)]="blog_photo" class="form-control" placeholder="Enter the image" aria-describedby="basic-addon1" required>
     </div>
+    <br/>
 
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Flag</span>
-        <input type="text" name="flag" [(ngModel)]="flag" class="form-control" placeholder="Approve or Not?" aria-describedby="basic-addon1" required>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">View</span>
-        <input type="text" name="view" [(ngModel)]="view" class="form-control" placeholder="Views of Blog" aria-describedby="basic-addon1" required>
-    </div>
-
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">U_Email_Id</span>
+        <span class="input-group-addon" id="basic-addon1">Email_Id</span>
         <input type="text" name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter user Email_id" aria-describedby="basic-addon1" required>
     </div>
-
+    <br/>
     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Sub_Id</span>
-        <input type="text" name="fk_sub_id" [(ngModel)]="fk_sub_id" class="form-control" placeholder="Enter subject id" aria-describedby="basic-addon1" required>
+        <span class="input-group-addon" id="basic-addon1">Subject Name</span>
+        
+        <select class="form-control" id="fk_sub_id" [(ngModel)]="fk_sub_id" name="fk_sub_id"required >
+        <option *ngFor="let s of allSubject" [value]="s.sub_id">{{s.sub_name}}</option>
+        </select>
     </div>
+    <br/>
+    <button type="submit" style="    background-color: #489fdf" class="btn btn-primary addbtn" >Add Blog</button>
 
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add Question</button>
+    </div>
+    </div>
     </form>
 
-</div>
+    <form *ngIf="blog_id!=0"(ngSubmit)="updateblog()">    
+<div class="panel panel-success dd">
+   
+<div class="panel-heading"><h2 style="text-align:center">Edit Blog</h2></div>
 
+  <div class="panel-body">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Title</span>
+        <input type="text" name="blog_title" [(ngModel)]="blog_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Description</span>
+        <input type="text" name="blog_desc" [(ngModel)]="blog_desc" class="form-control" placeholder="Enter Description" aria-describedby="basic-addon1" required>
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="text" name="blog_photo" [(ngModel)]="blog_photo" class="form-control" placeholder="Enter the image" aria-describedby="basic-addon1" required>
+    </div>
+    <br/>
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Subject Name</span>
+        
+        <select class="form-control" id="fk_sub_id" [(ngModel)]="fk_sub_id" name="fk_sub_id"required >
+        <option *ngFor="let s of allSubject" [value]="s.sub_id">{{s.sub_name}}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success editbtn">Edit Blog</button>
+    </div>
+  </div>    
+    </form>
+    
+</div>

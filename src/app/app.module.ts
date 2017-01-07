@@ -43,6 +43,15 @@ import { AddnewsComponent } from './news/addnews.component';
 
 import { NotesComponent } from './notes/notes.component';
 import { AddnotesComponent } from './notes/addnotes.component';
+import { SidebarComponent } from './sidebar.component';
+import { DemoComponent } from './demo/demo.component';
+
+import { PaginatePipe } from './ng2paging/paginate.pipe';
+import { PaginationService } from './ng2paging/pagination.service';
+import { PaginationControlsComponent } from './ng2paging/pagination-controls.component';
+import { PaginationControlsDirective } from './ng2paging/pagination-controls.directive';
+import { PaginationInstance } from './ng2paging/pagination-instance';
+
 
 
 @NgModule({
@@ -70,7 +79,14 @@ import { AddnotesComponent } from './notes/addnotes.component';
     NewsComponent,
     AddnewsComponent,
     NotesComponent,
-    AddnotesComponent
+    AddnotesComponent,
+    SidebarComponent,
+    DemoComponent,
+
+    PaginatePipe,
+    PaginationControlsComponent,
+    PaginationControlsDirective
+
 
   ],
   imports: [
@@ -80,7 +96,7 @@ import { AddnotesComponent } from './notes/addnotes.component';
     routing
   ],
 
-  providers: [UserDataService,QuestionDataService,GroupDataService,CourseDataService,SubjectDataService,AnswerDataService,VideoDataService,BlogDataService,NewsDataService,NotesDataService],
+  providers: [UserDataService,QuestionDataService,GroupDataService,CourseDataService,SubjectDataService,AnswerDataService,VideoDataService,BlogDataService,NewsDataService,NotesDataService,PaginationService],
 
 
   bootstrap: [AppComponent]

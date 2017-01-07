@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 export class UserDataService {
 
   private url:string="http://localhost:3000/users/";
+  
 
   constructor(private _http:Http) { }
 
@@ -15,7 +16,7 @@ export class UserDataService {
     return this._http.get(this.url).map((res:Response)=>res.json());
   }
 
-  getUserById(id:number)
+  getUserById(id:string)
   {
     return this._http.get(this.url+id).map((res:Response)=>res.json());
   }

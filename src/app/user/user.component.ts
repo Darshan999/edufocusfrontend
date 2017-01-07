@@ -33,11 +33,13 @@ delarr:UserModel[]=[];
 
   adduser()
   {
-    this._router.navigate(['/adduser']);
+    this._router.navigate(['/adduser','0']);
   }
 
 deleteuser(item:UserModel)
 {
+  if(confirm("Are You Sure want to delete?"))
+  {
   this._user_data.deleteUser(item.u_email_id).subscribe(
     (data:any)=>{
       this.allUser.splice(this.allUser.indexOf(item),1);
@@ -46,8 +48,9 @@ deleteuser(item:UserModel)
     function(error){
       alert(error);
     }
-
+  
   );
+}
 }
 
     i:number=0;
@@ -100,6 +103,10 @@ deleteuser(item:UserModel)
  
 
 
+updateuser(item:UserModel)
+  {
+      this._router.navigate(['/adduser',item.u_email_id]);
+  }
 
 
 

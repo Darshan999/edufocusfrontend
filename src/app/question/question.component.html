@@ -3,12 +3,14 @@
 </div>
 
 
+<div id="page-wrapper">
 
   <!-- Table -->
-  
+  <div class="container-fluid">
+    <div class="row">
 
     
-    <h2 class="text">Question Details</h2>
+    <h2 class="text">Questions Details</h2>
     <div class="panel-body">
     <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
     <button (click)="addquestion()" class="btn btn-primary" ><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
@@ -20,7 +22,6 @@
       <tr>
       <th><input type="checkbox" /></th>
       <th>Title</th>
-      <th>Description</th>
       <th>Date</th>
       <th>Time</th>
       <th>Photo</th>
@@ -35,7 +36,6 @@
     <tr *ngFor="let item of allQuestionjoin">
       <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.que_title}}</td>
-      <td>{{item.que_desc}}</td>
       <td>{{item.que_date}}</td>
       <td>{{item.que_time}}</td>
       <td>{{item.que_photo}}</td>
@@ -45,7 +45,11 @@
 
       <td><button (click)="updatequestion(item)" class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
       <td><button (click)="deletequestion(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      
     </tr>
     </tbody>
   </table>
+    </div>
+  </div>
+  </div>
   

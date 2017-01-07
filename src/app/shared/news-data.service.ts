@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 export class NewsDataService {
 
   private url:string="http://localhost:3000/news/";
+  private url1:string="http://localhost:3000/newsjoin/";
 
   constructor(private _http:Http) { }
 
@@ -17,6 +18,10 @@ export class NewsDataService {
   getNewsById(id:number)
   {
     return this._http.get(this.url+id).map((res:Response)=>res.json());
+  }
+   getAllNewsJoin()
+  {
+    return this._http.get(this.url1).map((res:Response)=>res.json());
   }
   addNews(item:NewsModel)
   {
@@ -33,6 +38,14 @@ export class NewsDataService {
     let requestoptions=new RequestOptions({headers:headers});
 
     return this._http.delete(this.url+id,requestoptions).map((res:Response)=>res.json());
+  }
+   deleteAll(item:NewsModel[])
+  {
+    let body=JSON.stringify(item);
+    let headers=new Headers({'Content-Type':'application/json'});
+    let requestoption=new RequestOptions({headers:headers});
+    return this._http.post(this.url+1,body,requestoption).map((res:Response)=>res.json());
+  
   }
 
   updateNews(item:NewsModel)

@@ -1,43 +1,51 @@
 
+<div class="row">
+  <app-header></app-header>
+</div>
 
-<app-header></app-header>
+  <div id="page-wrapper">
 
   <!-- Table -->
-  <div class="panel panel-primary">
+  <div class="container-fluid">
+    <div class="row">
 
-    <div class="panel-heading">News Details</div>
-
-    <button (click)="addnews()" style="margin-left: 1326px;
-    border-radius: 43px;
-    color: white;
-    background: #337ab7;"><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
-
+    
+    <h2 class="text">News Details</h2>
+    <div class="panel-body">
+    <button (click)="deleteAll()" class="btn btn-danger"><span>Delete All</span></button>
+    <button (click)="addnews()" class="btn btn-primary" ><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
+   
+    </div>
 <table class="table">
     <thead>
-      <th>Id</th>
+      <tr>
+      <th><input type="checkbox" /></th>
       <th>Title</th>
       <th>Description</th>
-      <th>Photo</th>
       <th>Date</th>
       <th>Time</th>
-      <th>User_Id</th>
-      <th>Edit</th>
+       <th>Photo</th>
+      <th>User_Name</th>
+      <th>Update</th>
       <th>Delete</th>
-
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of allNews">
-      <td>{{item.news_id}}</td>
+    <tr *ngFor="let item of allNewsjoin">
+      <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.news_title}}</td>
       <td>{{item.news_desc}}</td>
-      <td>{{item.news_photo}}</td>
       <td>{{item.news_date}}</td>
       <td>{{item.news_time}}</td>
-      <td>{{item.fk_u_email_id}}</td>
+      <td>{{item.news_photo}}</td>
+      <td>{{item.u_name}}</td>
       
-      <td><button (click)="updatenews(item)"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
-      <td><button (click)="deletenews(item)"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      <td><button (click)="updatenews(item)" class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="deletenews(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+   
     </tr>
     </tbody>
   </table>
+    </div>
+  </div>
   </div>

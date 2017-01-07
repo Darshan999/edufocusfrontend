@@ -1,46 +1,73 @@
+<div class="row">
 <app-header></app-header>
+</div>
 
-<div class="container">
+<div class="container-fluid">
 
-    <form (ngSubmit)="addnews()">
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Id</span>
-        <input type="text"  name="news_id" [(ngModel)]="news_id" class="form-control" placeholder="Enter News_id" aria-describedby="basic-addon1" required>
-    </div>
 
+
+    <form *ngIf="news_id==0"(ngSubmit)="addnews()">
+        <div class="panel panel-primary dd">
+   
+<div class="panel-heading" style="background-color: #489fdf"><h2 class="text">Add Blogs</h2></div>
+
+  <div class="panel-body">
+
+    
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Title</span>
         <input type="text" name="news_title" [(ngModel)]="news_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
     </div>
-
+    <br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Description</span>
         <input type="text" name="news_desc" [(ngModel)]="news_desc" class="form-control" placeholder="Enter Description" aria-describedby="basic-addon1" required>
     </div>
-
+    <br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Photo</span>
         <input type="text" name="news_photo" [(ngModel)]="news_photo" class="form-control" placeholder="Enter the image" aria-describedby="basic-addon1" required>
     </div>
-
-     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Date</span>
-        <input type="text" name="news_date" [(ngModel)]="news_date" class="form-control" placeholder="Enter the Date" aria-describedby="basic-addon1" required>
+    <br/>
+    
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Email_Id</span>
+        <input type="text" name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter user Email_id" aria-describedby="basic-addon1" required>
     </div>
+    <br/>
+   <button type="submit" style="background-color: #489fdf" class="btn btn-primary addbtn" >Add News</button>
 
-     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Time</span>
-        <input type="text" name="news_time" [(ngModel)]="news_time" class="form-control" placeholder="Enter the time" aria-describedby="basic-addon1" required>
     </div>
-
-     <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">User_Id</span>
-        <input type="text" name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter User Email Id" aria-describedby="basic-addon1" required>
     </div>
-
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add News</button>
     </form>
 
+    
+    <form *ngIf="news_id!=0"(ngSubmit)="updatenews()">    
+<div class="panel panel-success dd">
+   
+<div class="panel-heading"><h2 style="text-align:center">Edit Blog</h2></div>
+
+  <div class="panel-body">
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Title</span>
+        <input type="text" name="news_title" [(ngModel)]="news_title" class="form-control" placeholder="Enter Title" aria-describedby="basic-addon1" required> 
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Description</span>
+        <input type="text" name="news_desc" [(ngModel)]="news_desc" class="form-control" placeholder="Enter Description" aria-describedby="basic-addon1" required>
+    </div>
+    <br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="text" name="news_photo" [(ngModel)]="news_photo" class="form-control" placeholder="Enter the image" aria-describedby="basic-addon1" required>
+    </div>
+    <br/>
+     <button type="submit" class="btn btn-success editbtn">Edit News</button>
+    </div>
+  </div>    
+    </form>
 </div>
 
 

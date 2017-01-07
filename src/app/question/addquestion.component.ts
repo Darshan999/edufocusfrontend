@@ -24,6 +24,8 @@ flag:string='';
 view:number;
 fk_u_email_id:string='';
 fk_sub_id:number;
+sub_name:string='';
+
 
 private _subscription:Subscription;
 allSubject:SubjectModel[]=[];
@@ -42,16 +44,19 @@ allSubject:SubjectModel[]=[];
     this._subject_data.getAllSubjects().subscribe(
       (data:SubjectModel[])=>{
         this.allSubject=data;
+        this.fk_sub_id=this.allSubject[0].sub_id;
+        
       }
     );
     if(this.que_id!=0)
     {
       this._question_data.getQuestionById(this.que_id).subscribe(
 
-        (data:QuestionModel[])=>{
+        (data:QuestionjoinModel[])=>{
           this.que_title=data[0].que_title,
           this.que_desc=data[0].que_desc;
           this.que_photo=data[0].que_photo;
+          this.sub_name=data[0].sub_name;
         }
       );
     }
@@ -60,7 +65,7 @@ allSubject:SubjectModel[]=[];
   addquestion()
   {
     
-    this._question_data.addQuestion(new QuestionModel(this.que_id,this.que_title,this.que_desc,this.que_date,this.que_time,this.que_photo,this.flag,this.view,this.fk_u_email_id,this.fk_sub_id))
+    this._question_data.addQuestion(new QuestionModel(this.que_id,this.que_title,this.que_desc,'11/3/2017','10',this.que_photo,'approve',10,this.fk_u_email_id,this.fk_sub_id))
     .subscribe(
       (data:any)=>{
         console.log(data);
