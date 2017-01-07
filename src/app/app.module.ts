@@ -44,7 +44,7 @@ import { AddnewsComponent } from './news/addnews.component';
 import { NotesComponent } from './notes/notes.component';
 import { AddnotesComponent } from './notes/addnotes.component';
 import { SidebarComponent } from './sidebar.component';
-import { DemoComponent } from './demo/demo.component';
+
 
 import { PaginatePipe } from './ng2paging/paginate.pipe';
 import { PaginationService } from './ng2paging/pagination.service';
@@ -81,7 +81,6 @@ import { PaginationInstance } from './ng2paging/pagination-instance';
     NotesComponent,
     AddnotesComponent,
     SidebarComponent,
-    DemoComponent,
 
     PaginatePipe,
     PaginationControlsComponent,
