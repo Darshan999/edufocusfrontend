@@ -21,10 +21,23 @@
         <input type="text" name="u_name" [(ngModel)]="u_name" class="form-control" placeholder="Enter Name" aria-describedby="basic-addon1" required> 
     </div>
 <br/>
-    <div class="input-group">
+    <!--<div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Photo</span>
         <input type="text" name="u_photo" [(ngModel)]="u_photo" class="form-control" placeholder="Enter the path of Image" aria-describedby="basic-addon1" required>
+    </div>-->
+
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="file"  multiple (change)="fileChange(input)" #input />
     </div>
+
+            <div *ngFor="let file_src of file_srcs; let i = index">  
+        <img [attr.src]='file_src' alt=""/>
+        
+        <p>{{ debug_size_before[i] }} bytes <b>Before</b> </p>
+        <p>{{ debug_size_after[i] }} bytes <b>After</b></p>
+        </div>
+
 <br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Mobile_No</span>

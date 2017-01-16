@@ -54,16 +54,18 @@ import { GroupfilterPipe } from './group/groupfilter.pipe';
 
 import { SidebarComponent } from './sidebar.component';
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 0e1c01cf7e1f7de83d22e8fbe95ce196c9c19ab7
+
+
 
 import { PaginatePipe } from './ng2paging/paginate.pipe';
 import { PaginationService } from './ng2paging/pagination.service';
 import { PaginationControlsComponent } from './ng2paging/pagination-controls.component';
 import { PaginationControlsDirective } from './ng2paging/pagination-controls.directive';
 import { PaginationInstance } from './ng2paging/pagination-instance';
+import { NewsfilterPipe } from './news/newsfilter.pipe';
+import { BlogfilterPipe } from './blog/blogfilter.pipe';
+import { QuestionfilterPipe } from './question/questionfilter.pipe';
 
 
 
@@ -113,7 +115,10 @@ import { PaginationInstance } from './ng2paging/pagination-instance';
 
     PaginatePipe,
     PaginationControlsComponent,
-    PaginationControlsDirective
+    PaginationControlsDirective,
+    NewsfilterPipe,
+    BlogfilterPipe,
+    QuestionfilterPipe
 
 
 

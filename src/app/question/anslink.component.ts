@@ -27,6 +27,9 @@ ans_desc:string='';
 u_name1:string='';
 que_date:string='';
 ans_date:string='';
+fk_u_email_id="dd@gmail.com";
+flag="inactive";
+
 
   constructor(public _question_data:QuestionDataService,public _answer_data:AnswerDataService,public _router:Router,private _acroute:ActivatedRoute) { }
 

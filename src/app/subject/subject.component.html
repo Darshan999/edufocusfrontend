@@ -6,10 +6,20 @@
  <h2 class="text">Subject Details</h2>
     <div class="panel-body">
 
-    <div class="input-group">
+   <!-- <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Subject search</span>
         <input type="text" #search (keyup)="0" class="form-control" placeholder="Enter Subject search" aria-describedby="basic-addon1" required>
-    </div>
+    </div>-->
+
+    
+      <form action="" class="search-form">
+         <div class="form-group has-feedback">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text"  #search (keyup)="0" class="form-control" name="search" id="search" placeholder="search">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+        	</div>
+        </form>
+
     <button (click)="addsubject()" class="btn btn-primary" ><span class="glyphicon glyphicon-plus" arial-hidden="true"></span></button>
      <button (click)="deleteallsubject()"  class="btn btn-danger" class="btn btn-danger"><span>Delete All</span></button>
     </div>
@@ -30,7 +40,7 @@
      
      <td><input type="checkbox" (change)="checkChange(item)" /></td>
       <td>{{item.sub_name}}</td>
-      <td>{{item.sub_photo}}</td>
+      <td><img src="http://localhost:3000{{item.sub_photo}}" width="100px" height="100px"/></td>
       <td>{{item.course_name}}</td>
       <td>{{item.u_name}}</td>
     
@@ -40,4 +50,7 @@
     </tr>
     </tbody>
   </table>
+   <div class="has-text-centered">
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+</div>
  
