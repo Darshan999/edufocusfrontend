@@ -66,6 +66,7 @@ import { PaginationInstance } from './ng2paging/pagination-instance';
 import { NewsfilterPipe } from './news/newsfilter.pipe';
 import { BlogfilterPipe } from './blog/blogfilter.pipe';
 import { QuestionfilterPipe } from './question/questionfilter.pipe';
+import { VideofilterPipe } from './video/videofilter.pipe';
 
 
 
@@ -118,7 +119,8 @@ import { QuestionfilterPipe } from './question/questionfilter.pipe';
     PaginationControlsDirective,
     NewsfilterPipe,
     BlogfilterPipe,
-    QuestionfilterPipe
+    QuestionfilterPipe,
+    VideofilterPipe
 
 
 
