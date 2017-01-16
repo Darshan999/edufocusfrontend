@@ -12,6 +12,7 @@ export class UserfilterPipe implements PipeTransform {
    
     if(args!='')
     {
+      console.log("if");
       this.u_email_id=value.filter(res=>res.u_email_id.startsWith(args));
       this.u_name=value.filter(res=>res.u_name.startsWith(args));
 
@@ -20,6 +21,7 @@ export class UserfilterPipe implements PipeTransform {
     }
     else
     {
+      console.log("else");
       return value;
     }
   }

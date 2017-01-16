@@ -5,7 +5,7 @@
 <div class="container">
 
 
- <div class="panel panel-primary">
+ <div class="panel panel-primary  dd">
 <div class="panel-heading"><h2 class="text">Add Group</h2></div>
 
 <div class="panel-body">
@@ -17,6 +17,7 @@
         <input type="string"  name="grp_date" [(ngModel)]="grp_date" class="form-control" placeholder="Enter Group_Date" aria-describedby="basic-addon1" required>
     </div>
 
+    <br/>
        
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Subject Name</span>
@@ -27,14 +28,16 @@
     </div>
 
 
-  
+   <br/>
 
      <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Email Id</span>
         <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter Email_Id" aria-describedby="basic-addon1" required>
     </div>
 
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add </button>
+     <br/>
+
+    <button type="submit" class="btn btn-primary addbtn" style= "background-color: #489fdf">Add </button>
     </form>
 </div>
  </div>

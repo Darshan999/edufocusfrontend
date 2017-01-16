@@ -17,13 +17,26 @@
         <span class="input-group-addon" id="basic-addon1">Subject Name</span>
         <input type="string"  name="sub_name" [(ngModel)]="sub_name" class="form-control" placeholder="Enter Subject_name" aria-describedby="basic-addon1" required>
     </div>
-
-    <div class="input-group">
+<br/>
+ <!--   <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Subject Photo</span>
         <input type="string"  name="sub_photo" [(ngModel)]="sub_photo" class="form-control" placeholder="Enter Subject_photo" aria-describedby="basic-addon1" required>
     </div>
+-->
+        
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="file"  multiple (change)="fileChange(input)" #input />
+    </div>
 
+            <div *ngFor="let file_src of file_srcs; let i = index">  
+        <img [attr.src]='file_src' alt=""/>
+        
+        <p>{{ debug_size_before[i] }} bytes <b>Before</b> </p>
+        <p>{{ debug_size_after[i] }} bytes <b>After</b></p>
+        </div>
     
+        <br/>
     <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">Course Name</span>
         
@@ -32,7 +45,7 @@
         </select>
     </div>
 
-
+<br/>
    <!--  <div class="input-group">
         <span class="input-group-addon" id="basic-addon1">User Name</span>
         
@@ -48,7 +61,7 @@
         <input type="string"  name="fk_u_email_id" [(ngModel)]="fk_u_email_id" class="form-control" placeholder="Enter User Email_ID" aria-describedby="basic-addon1" required/>
     </div>
 
-
+<br/>
 
     <button type="submit" class="btn btn-primary" style="margin-top: 10px">Save </button>
     </form>
