@@ -30,6 +30,11 @@ export class AnswerDataService {
     return this._http.get(this.url1+id).map((res:Response)=>res.json());
   }
 
+  getAnswerByQuestionId(id:number)
+  {
+     return this._http.get(this.url1+id).map((res:Response)=>res.json());
+  }
+
   addAnswer(answer:AnswerModel)
   {
     let body=JSON.stringify(answer);

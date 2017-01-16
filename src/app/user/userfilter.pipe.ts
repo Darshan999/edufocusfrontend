@@ -13,8 +13,8 @@ export class UserfilterPipe implements PipeTransform {
     if(args!='')
     {
       console.log("if");
-      this.u_email_id=value.filter(res=>res.u_email_id.startsWith(args));
-      this.u_name=value.filter(res=>res.u_name.startsWith(args));
+      this.u_email_id=value.filter(res=>res.u_email_id.toLowerCase().includes(args.toLowerCase()));
+      this.u_name=value.filter(res=>res.u_name.toLowerCase().includes(args.toLowerCase()));
 
       return this.u_name.concat(this.u_email_id);
 

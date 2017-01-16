@@ -55,7 +55,7 @@ export const DEFAULT_STYLES = `
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
-    font-size: 0.875rem;
+    font-size: 1.5rem;
     margin-right: 0.0625rem;
     border-radius: 0; }
   .ng2-pagination li {
