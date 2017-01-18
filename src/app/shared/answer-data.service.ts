@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 export class AnswerDataService {
 
   private url:string="http://localhost:3000/answers/";
-   private url1:string="http://localhost:3000/answerjoin/";
+   private url1:string="http://localhost:3000/answerbyquestionid/";
 
   constructor(private _http:Http) { }
 
@@ -28,6 +28,11 @@ export class AnswerDataService {
   getAnswerByIdJoin(id:number)
   {
     return this._http.get(this.url1+id).map((res:Response)=>res.json());
+  }
+
+  getAnswerByQuestionId(id:number)
+  {
+     return this._http.get(this.url1+id).map((res:Response)=>res.json());
   }
 
   addAnswer(answer:AnswerModel)

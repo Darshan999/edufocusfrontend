@@ -23,12 +23,23 @@ que_id:number;
 que_title:string='';
 que_desc:string='';
 u_name:string='';
-ans_desc:string='';
+//ans_desc:string='';
 u_name1:string='';
 que_date:string='';
-ans_date:string='';
+//ans_date:string='';
 fk_u_email_id="dd@gmail.com";
 flag="inactive";
+
+    ans_id:number;
+    ans_desc:string='';
+    add_ans_desc:string='';
+    ans_date:string='2016/12/16';
+    ans_time:string='20:12:00';
+    ans_flag:string='approve';
+    view:number=2;
+   // fk_que_id:number;
+    fk_ans_u_email_id:string='dd@gmail.com';
+
 
 
   constructor(public _question_data:QuestionDataService,public _answer_data:AnswerDataService,public _router:Router,private _acroute:ActivatedRoute) { }
@@ -66,14 +77,16 @@ flag="inactive";
         }
       );*/
 
-      this._answer_data.getAnswerByIdJoin(this.que_id).subscribe(
+      this._answer_data.getAnswerByQuestionId(this.que_id).subscribe(
 
       (data:AnswerJoinModel[])=>{
         this.allansbyid=data;
-        this.ans_desc=this.allansbyid[0].ans_desc;
-        this.u_name1=this.allansbyid[0].u_name;
-        this.ans_date=this.allansbyid[0].ans_date;
+      // this.ans_desc=this.allansbyid[0].ans_desc;
+       // this.u_name1=this.allansbyid[0].u_name;
+        //this.ans_date=this.allansbyid[0].ans_date;
+
         console.log(data);
+        
       },
       function(error){
         alert(error);
@@ -85,7 +98,21 @@ flag="inactive";
     );
 
   }
-
+  addans_desc()
+  {
+      this._answer_data.addAnswer(new AnswerModel(this.ans_id,this.add_ans_desc,this.ans_date,this.ans_time,this.ans_flag,this.view,this.que_id,this.fk_ans_u_email_id))
+    .subscribe(
+      (data:any)=>{
+        console.log(data);
+        this._router.navigate(['/allquestions']);
+      },
+      function(error){},
+      function()
+      {
+        alert('added');
+      }
+    );
+  }
 
   }
 
