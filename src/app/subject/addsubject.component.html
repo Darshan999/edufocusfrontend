@@ -2,15 +2,21 @@
 <app-header></app-header>
 </div>
 
-<div class="container">
+<div class="container-fluid">
 
     
-     <div class="panel panel-primary">
+<form *ngIf="sub_id==0" (ngSubmit)="addsubject()">
+        <div class="panel panel-primary dd">
+   
+<div class="panel-heading" style="background-color: #489fdf"><h2 class="text">Add Subject Here</h2></div>
+
+
+   <!--  <div class="panel panel-primary">
   <div class="panel-heading" *ngIf="sub_id==0" ><h2 class="text">Add Subject Here</h2></div>
-  <div class="panel-heading" *ngIf="sub_id!=0" ><h2 class="text">Edit Subject Here</h2></div>
+  <div class="panel-heading" *ngIf="sub_id!=0" ><h2 class="text">Edit Subject Here</h2></div>-->
 
  <div class="panel-body">
-    <form (ngSubmit)="addsubject()">
+   
 
      
      <div class="input-group">
@@ -63,11 +69,56 @@
 
 <br/>
 
-    <button type="submit" class="btn btn-primary" style="margin-top: 10px">Save </button>
-    </form>
+    <button type="submit" class="btn btn-primary addbtn" style="background-color: #489fdf" >Add Subject</button>
  </div>
-     </div>
-     
+        </div>
+    </form>
+
+      <form *ngIf="sub_id!=0" (ngSubmit)="updatesubject()">    
+<div class="panel panel-success dd">
+   
+<div class="panel-heading"><h2 class="text">Edit Subject </h2></div>
+ <div class="panel-body">
+
+            
+     <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Subject Name</span>
+        <input type="string"  name="sub_name" [(ngModel)]="sub_name" class="form-control" placeholder="Enter Subject_name" aria-describedby="basic-addon1" required>
+    </div>
+<br/>
+
+        
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Photo</span>
+        <input type="file"  multiple (change)="fileChange(input)" #input />
     </div>
 
+            <div *ngFor="let file_src of file_srcs; let i = index">  
+        <img [attr.src]='file_src' alt=""/>
+        
+        <p>{{ debug_size_before[i] }} bytes <b>Before</b> </p>
+        <p>{{ debug_size_after[i] }} bytes <b>After</b></p>
+        </div>
+    
+        <br/>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Course Name</span>
+        
+        <select class="form-control" id="fk_course_id" [(ngModel)]="fk_course_id" name="fk_course_id"required >
+        <option *ngFor="let s of allCourse" [value]="s.course_id">{{s.course_name}}</option>
+        </select>
+    </div>
+
+  <br/>
+
+<button type="submit" class="btn btn-success editbtn">Edit Subject</button>
+
+
+ </div>
+
+</div>
+      </form>
+
+ </div>
+    
 

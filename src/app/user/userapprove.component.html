@@ -1,0 +1,56 @@
+<div class="row">
+  <app-header></app-header>
+</div>
+
+
+  <div id="page-wrapper">
+
+  <div class="container-fluid">
+    <div class="row">
+      <h2 class="text">Users Details</h2>
+    <div class="panel-body">
+
+
+<table class="table">
+    <thead>
+      <tr>
+      <th><input type="checkbox" /></th>
+      <th>Email_Id</th>
+      <th>Name</th>
+      <th>Photo</th>
+      <th>Mobile_no</th>
+      <th>Gender</th>
+      <th>Active</th>
+      <th>Status</th>
+      <th>Type</th>
+      <th>Approve</th>
+      <th>Disapprove</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+    <tr *ngFor="let item of allUser">
+
+      <td><input type="checkbox" (change)="checkChange(item)" /></td>
+      <td>{{item.u_email_id}}</td>
+      <td>{{item.u_name}}</td>
+   
+      <td><img src="http://localhost:3000{{item.u_photo}}" width="100px" height="100px"/></td>
+      <td>{{item.u_mobile_no}}</td>
+      <td>{{item.u_gender}}</td>
+      <td>{{item.u_active}}</td>
+      <td>{{item.u_status}}</td>
+      <td>{{item.u_type}}</td>
+
+       <td><button (click)="approveuser(item)" class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="disapproveuser(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+    </div>
+  </div>
+  </div>
