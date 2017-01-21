@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 export class UserDataService {
 
   private url:string="http://localhost:3000/users/";
+  private url1:string="http://localhost:3000/userflag/";
   
 
   constructor(private _http:Http) { }
@@ -14,6 +15,11 @@ export class UserDataService {
   getAllUsers()
   {
     return this._http.get(this.url).map((res:Response)=>res.json());
+  }
+
+  getAllUsersflag()
+  {
+    return this._http.get(this.url1).map((res:Response)=>res.json());
   }
 
   getUserById(id:string)
@@ -54,6 +60,14 @@ export class UserDataService {
     let requestoptions=new RequestOptions({headers:headers});
 
     return this._http.put(this.url+item.u_email_id,body,requestoptions).map((res:Response)=>res.json());
+  }
+updateUserflag(item:UserModel)
+  {
+    let body=JSON.stringify(item);
+    let headers=new Headers({'Content-Type':'application/json'});
+    let requestoptions=new RequestOptions({headers:headers});
+    console.log(this.url1+item.u_email_id);
+    return this._http.put(this.url1+item.u_email_id,body,requestoptions).map((res:Response)=>res.json());
   }
 
 }

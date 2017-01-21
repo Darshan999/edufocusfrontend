@@ -67,6 +67,7 @@ import { NewsfilterPipe } from './news/newsfilter.pipe';
 import { BlogfilterPipe } from './blog/blogfilter.pipe';
 import { QuestionfilterPipe } from './question/questionfilter.pipe';
 import { VideofilterPipe } from './video/videofilter.pipe';
+import { UserapproveComponent } from './user/userapprove.component';
 
 
 
@@ -120,7 +121,8 @@ import { VideofilterPipe } from './video/videofilter.pipe';
     NewsfilterPipe,
     BlogfilterPipe,
     QuestionfilterPipe,
-    VideofilterPipe
+    VideofilterPipe,
+    UserapproveComponent
 
 
 

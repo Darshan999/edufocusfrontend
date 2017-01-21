@@ -22,6 +22,7 @@ import { AddnewsComponent } from './news/addnews.component';
 import { NotesComponent } from './notes/notes.component';
 import { AddnotesComponent } from './notes/addnotes.component';
 import { AnslinkComponent } from './question/anslink.component';
+import { UserapproveComponent } from './user/userapprove.component';
 
 const router:Routes=[
     {path:'',redirectTo:'/allusers',pathMatch:'full'},
@@ -50,7 +51,8 @@ const router:Routes=[
     {path:'addnews/:news_id',component:AddnewsComponent},
     {path:'allnotes',component:NotesComponent},
     {path:'addnotes/:notes_id',component:AddnotesComponent},
-    {path:'anslink/:que_id',component:AnslinkComponent}
+    {path:'anslink/:que_id',component:AnslinkComponent},
+    {path:'userapprove',component:UserapproveComponent}
     
     
     

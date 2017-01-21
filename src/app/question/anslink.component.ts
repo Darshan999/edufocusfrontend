@@ -33,8 +33,10 @@ flag="inactive";
     ans_id:number;
     ans_desc:string='';
     add_ans_desc:string='';
-    ans_date:string='2016/12/16';
-    ans_time:string='20:12:00';
+    /*ans_date:string='2016/12/16';
+    ans_time:string='20:12:00';*/
+    ans_date:string='';
+    ans_time:string='';
     ans_flag:string='approve';
     view:number=2;
    // fk_que_id:number;
