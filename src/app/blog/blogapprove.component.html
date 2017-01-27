@@ -1,0 +1,60 @@
+<div class="row">
+  <app-header></app-header>
+</div>
+
+
+  <div id="page-wrapper">
+
+  <!-- Table -->
+  <div class="container-fluid">
+    <div class="row">
+
+    
+    <h2 class="text">Blogs Details</h2>
+      <div class="panel-body">
+    
+<table class="table">
+    <thead>
+      <tr>
+      <th><input type="checkbox" /></th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Photo</th>
+      <th>View</th>
+      <th>User_Name</th>
+      <th>Subject_Name</th>
+      <th>Approve</th>
+      <th>Disapprove</th>
+      </tr>
+
+    </thead>
+    <tbody>
+
+   
+
+    <tr *ngFor="let item of allBlogjoin ">
+
+      <td><input type="checkbox" (change)="checkChange(item)" /></td>
+      <td>{{item.blog_title}}</td>
+      <td>{{item.blog_desc}}</td>
+      <td>{{item.blog_date}}</td>
+      <td>{{item.blog_time}}</td>
+      <td>{{item.blog_photo}}</td>
+      <td>{{item.view}}</td>
+      <td>{{item.u_name}}</td>
+      <td>{{item.sub_name}}</td>
+
+      <td><button (click)="approveblog(item)" class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="disapproveblog(item)" class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+      
+    </tr>
+    </tbody>
+  </table>
+      </div>
+
+    </div>
+  </div>
+  </div>
+  

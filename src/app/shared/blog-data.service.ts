@@ -8,6 +8,7 @@ export class BlogDataService {
 
 private url:string="http://localhost:3000/blogs/";
 private url1:string="http://localhost:3000/blogjoin/";
+private url2:string="http://localhost:3000/blogflag/";
 
   constructor(private _http:Http) { }
 
@@ -24,6 +25,12 @@ private url1:string="http://localhost:3000/blogjoin/";
    getAllBlogsJoin()
   {
     return this._http.get(this.url1).map((res:Response)=>res.json());
+  }
+
+  
+   getAllBlogsJoinflag()
+  {
+    return this._http.get(this.url2).map((res:Response)=>res.json());
   }
 
   addBlog(item:BlogModel)
@@ -61,6 +68,14 @@ private url1:string="http://localhost:3000/blogjoin/";
     let requestoptions=new RequestOptions({headers:headers});
 
     return this._http.put(this.url+item.blog_id,body,requestoptions).map((res:Response)=>res.json());
+  }
+   updateBlogflag(item:BlogModel)
+  {
+    let body=JSON.stringify(item);
+    let headers=new Headers({'Content-Type':'application/json'});
+    let requestoptions=new RequestOptions({headers:headers});
+
+    return this._http.put(this.url2+item.blog_id,body,requestoptions).map((res:Response)=>res.json());
   }
 
 }

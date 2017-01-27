@@ -8,6 +8,7 @@ export class AnswerDataService {
 
   private url:string="http://localhost:3000/answers/";
    private url1:string="http://localhost:3000/answerbyquestionid/";
+   private url2:string="http://localhost:3000/answerflag/";
 
   constructor(private _http:Http) { }
 
@@ -19,6 +20,10 @@ export class AnswerDataService {
    getAllAnswersJoin()
   {
     return this._http.get(this.url1).map((res:Response)=>res.json());
+  }
+   getAllAnswersJoinflag()
+  {
+    return this._http.get(this.url2).map((res:Response)=>res.json());
   }
   getAnswerById(id:number)
   {
@@ -62,6 +67,18 @@ export class AnswerDataService {
 
       console.log(this.url+item.ans_id);
     return this._http.put(this.url+item.ans_id,body,requestoption).map((res:Response)=>res.json());
+
+
+}
+updateAnswerflag(item:AnswerModel){
+
+
+    let body=JSON.stringify(item);
+    let headers=new Headers({'Content-Type':'application/json'});
+    let requestoption=new RequestOptions({headers});
+
+    //  console.log(this.url+item.ans_id);
+    return this._http.put(this.url2+item.ans_id,body,requestoption).map((res:Response)=>res.json());
 
 
 }

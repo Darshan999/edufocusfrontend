@@ -69,6 +69,9 @@ import { QuestionfilterPipe } from './question/questionfilter.pipe';
 import { VideofilterPipe } from './video/videofilter.pipe';
 import { UserapproveComponent } from './user/userapprove.component';
 
+import { BlogapproveComponent } from './blog/blogapprove.component';
+import { AnswerapproveComponent } from './answer/answerapprove.component';
+
 
 
 @NgModule({
@@ -122,7 +125,11 @@ import { UserapproveComponent } from './user/userapprove.component';
     BlogfilterPipe,
     QuestionfilterPipe,
     VideofilterPipe,
-    UserapproveComponent
+    UserapproveComponent,
+
+    BlogapproveComponent,
+
+    AnswerapproveComponent
 
 
 

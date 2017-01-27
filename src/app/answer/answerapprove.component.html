@@ -1,0 +1,39 @@
+<div class="row">
+  <app-header></app-header>
+</div>
+
+ <h2 class="text">Answer Details</h2>
+  
+  <table class="table">
+    <thead>
+      <tr>
+    
+      <th>Answer_desc</th>
+      <th>Answer_date</th>
+      <th>Answer_time</th>
+      <th>Flag</th>
+      <th>View</th>
+      <th>fk_que_id</th>
+      <th>fk_u_email_id</th>
+      <th>Approve</th>
+      <th>Disapprove</th> 
+      <tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of allAnswer">
+     
+      <td>{{item.ans_desc}}</td>
+      <td>{{item.ans_date}}</td>
+      <td>{{item.ans_time}}</td>
+      <td>{{item.flag}}</td>
+      <td>{{item.view}}</td>
+      <td>{{item.fk_que_id}}</td>
+      <td>{{item.fk_u_email_id}}</td>
+    
+
+      <td><button (click)="approveanswer(item)"  class="btn btn-success"><span class="glyphicon glyphicon-pencil" arial-hidden="true"></span></button></td>
+      <td><button (click)="disapproveanswer(item)"  class="btn btn-danger"><span class="glyphicon glyphicon-trash" arial-hidden="true"></span></button></td>
+    </tr>
+    </tbody>
+  </table>
+

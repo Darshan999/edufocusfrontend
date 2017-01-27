@@ -23,6 +23,8 @@ import { NotesComponent } from './notes/notes.component';
 import { AddnotesComponent } from './notes/addnotes.component';
 import { AnslinkComponent } from './question/anslink.component';
 import { UserapproveComponent } from './user/userapprove.component';
+import { BlogapproveComponent } from './blog/blogapprove.component';
+import { AnswerapproveComponent } from './answer/answerapprove.component';
 
 const router:Routes=[
     {path:'',redirectTo:'/allusers',pathMatch:'full'},
@@ -52,7 +54,9 @@ const router:Routes=[
     {path:'allnotes',component:NotesComponent},
     {path:'addnotes/:notes_id',component:AddnotesComponent},
     {path:'anslink/:que_id',component:AnslinkComponent},
-    {path:'userapprove',component:UserapproveComponent}
+    {path:'userapprove',component:UserapproveComponent},
+    {path:'blogapprove',component:BlogapproveComponent},
+    {path:'answerapprove',component:AnswerapproveComponent}
     
     
     

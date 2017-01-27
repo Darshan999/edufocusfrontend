@@ -116,6 +116,25 @@ flag="inactive";
     );
   }
 
+    deleteanswer(answer:AnswerJoinModel)
+{
+   if(confirm("Are You Sure want to delete?"))
+    {
+  this._answer_data.deleteAnswer(answer.ans_id).subscribe(
+    (data:any)=>{
+      this.allansbyid.splice(this.allansbyid.indexOf(answer),1);
+      alert("Deleted");
+    },
+    function(error){
+      alert(error);
+    }
+
+  );
+    }
+}
+
+
+
   }
 
 
